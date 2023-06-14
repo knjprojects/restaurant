@@ -1,6 +1,8 @@
 import React from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import MyHeader from './MyHeader'
+import TopBg from '../components/TopBG'
+import Navbar from '../components/Navbar'
 import { SessionProvider } from 'next-auth/react'
 type Props = {}
 //import SideNavbar from '../components/Sidebar'
@@ -8,8 +10,18 @@ type Props = {}
 import styles from "../styles/Navbar.module.css"
 const Header = (active: any) => {
   return (
-      <header className='flex flex-col navHeaderRest'>
-       {/* <div className='flex-row text-white space-x-11'>
+    <main> <header className='flex flex-col navHeaderRest'>
+      
+
+       <TopBg />
+       <Navbar />
+    </header></main>
+     
+  )
+}
+
+export default Header
+/* <div className='flex-row text-white space-x-11'>
           <div className='flex flex-row space-x-10 bg-blue-500 h-9'>
             <div className='flex flex-row space-x-5  text-white'>
               <Link href='/home' className=' text-white'>Restaurant</Link>
@@ -21,12 +33,3 @@ const Header = (active: any) => {
           </div>
         </div>
       </div> */
-      }
-     <SessionProvider>  <MyHeader /></SessionProvider>
-    
-     
-    </header>
-  )
-}
-
-export default Header

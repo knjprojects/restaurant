@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": [
       "dom",
       "dom.iterable",
@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "utils/firebase.tsx", "store/zustand/auth.store.ts", "utils/sanity.js", "utils/hooks/useAuth.tsx.txtextras"  ],
   "exclude": [
     "node_modules"
   ]

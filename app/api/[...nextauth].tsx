@@ -4,10 +4,8 @@ import type { NextAuthOptions } from "next-auth";
 import { User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
-import {googleProvider}  from '../../utils/firebase'
+//import {googleProvider}  from '../../utils/firebase'
 
-
-//import nextAuth from "next-auth"// weird right?
 export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -54,7 +52,7 @@ export const authOptions: NextAuthOptions = {
     }),
     
     FacebookProvider({
-      clientId: '',//process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID,
+      clientId: '${process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID}',
       clientSecret:''//process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET, //"44fb177cddb3011b68b74e0fef99bee0"//
     }), //78865451+knjprojects@users.noreply.github.com,eed a secret for github, need to launch vercel site first
     
@@ -76,7 +74,7 @@ export const authOptions: NextAuthOptions = {
       }
       else if (account.provider === "facebook") { 
         
-        return true
+        return false;
       }
     return false// Do different verification for other providers that don't have `email_verified`
     },

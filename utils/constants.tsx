@@ -5,11 +5,14 @@ export const contractAddress='0x5FbDB2315678afecb367f032d93F642f64180aa3'
 //smart contract finished
 
 
+export const WIX_ACCESS_TOKEN = 'wix_accessToken';
+export const WIX_REFRESH_TOKEN = 'wix_refreshToken';
+
+export const PLACEHOLDER_IMAGE = '/images/placeholder.jpg';
 
 
 
-
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
+/*import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import HomeIcon from '@mui/icons-material/Home';
 import CodeIcon from '@mui/icons-material/Code';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
@@ -21,11 +24,11 @@ import CheckroomIcon from '@mui/icons-material/Checkroom';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';*/
 
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
-export const categories = [
+/*export const categories = [
   { name: 'New', icon: <HomeIcon />, },
   { name: 'JS Mastery', icon: <CodeIcon />, },
   { name: 'Coding', icon: <CodeIcon />, },
@@ -43,7 +46,7 @@ export const categories = [
   { name: 'Comedy', icon: <TheaterComedyIcon />, },
   { name: 'Gym', icon: <FitnessCenterIcon />, },
   { name: 'Crypto', icon: <DeveloperModeIcon />, },
-];
+];*/
 
 export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
 export const demoChannelUrl = '/channel/UCmXmlB4-HJytD7wek0Uo97A';

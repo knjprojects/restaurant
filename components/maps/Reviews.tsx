@@ -10,21 +10,24 @@ type Review={
   author_name:string;
 }
 import { useEffect, useState } from 'react';
-
-const ReviewsComponent = ({ placeId }:any) => {
+import Minimap from './Minimap';
+const ReviewsComponent = ({ placeId ,apiKey}:any) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const fetchReviews = async () => {
-      try {
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=YOUR_API_KEY`
-        );
-        const data = await response.json();
-
-        if (data.status === 'OK') {
-          setReviews(data.result.reviews);
-        }
+      let data=null;
+      try { 
+        //let us try this the manual way first
+        //https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+        await fetch(
+          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`
+        ).then((res=>
+          res.json().
+          then((revs)=>{
+          setReviews(revs);
+        })));//q=Eiffel+Tower,Paris+France
+        //const data = await response.json();
       } catch (error) {
         console.error('Error fetching reviews:', error);
       }
@@ -32,9 +35,11 @@ const ReviewsComponent = ({ placeId }:any) => {
 
     fetchReviews();
   }, [placeId]);
-
+  //query the name on nthe map
+  let autoSearchConfig="q="
   return (
     <div>
+      <Minimap searchParams={autoSearchConfig} />
       <h2>Reviews:</h2>
       {reviews.length > 0 ? (
         <ul>

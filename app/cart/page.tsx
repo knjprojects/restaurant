@@ -19,7 +19,7 @@ const Cart = () => {
               <div className={styles.imgContainer}>
                 <Image
                   src="/../public/img/pizza.png"
-             
+                  width={100} height={100}
                   alt=""
                 />
               </div>

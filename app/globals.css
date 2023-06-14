@@ -30,7 +30,7 @@
         @apply bg-[image:var(--image-url)]
     }
     .headerMiddleTab{
-        @apply flex space-x-6 rounded-full 
+        @apply flex space-x-4 rounded-full 
     }
     .headerleft{
         @apply sm:space-x-7 flex items-center md:px-2
@@ -78,11 +78,21 @@
   @apply h-full w-full relative bg-gradient-to-b from-yellow-50 to-blue-300
 }
 .navHeaderRest{
-  @apply h-64 w-full p-2 bg-[#d1411e] flex sticky top-0 z-0 items-center text-center
+  @apply h-full w-full p-2 bg-[#d1411e] flex sticky top-0 z-0 items-center text-center
 }
 .navHeaderItem{
   @apply flex items-center
 }
+.popOver{
+  @apply text-gray-800 hover:text-blue-600
+}
+
+  .popOverButton{
+    @apply inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75
+  }
+  .popOverIcon{
+    @apply ml-2 h-5 w-5 text-orange-300 transition duration-100 ease-in-out group-hover:text-opacity-80
+  }
 }
 
 
