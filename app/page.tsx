@@ -1,6 +1,7 @@
 'use client'
 import React,{useEffect,useRef, useState,FormEvent} from 'react'
 import './globals.css'
+import './globals2.css'
 import Header from './Header'
 
 //import { SessionProvider } from "next-auth/react"
@@ -24,7 +25,7 @@ type Props = {
 }
 
 
-import { useAuthStore } from '../store/zustand/auth.store'
+
 import Discloshas from '../components/Disclosures'
 
 //import useAuth from './auth/useAuth'
@@ -34,14 +35,23 @@ import myAuth from './auth/myAuth'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { Carousel } from 'flowbite-react'
+import ScrollLink from '../components/ScrollLink'
+import CartList from './cart/CartList'
+import Navbar from "../components/Navbar"
+
+
+import data from "../utils/lib/data/data.json"
+import { useAuthStore } from '../store/zustand/auth.store'
+import { useCartStore } from '../store/zustand/cart.store'
+
 const Main= ({params}:{params:{session:Session}}) => {//our page / tsx file conflicts with 
 
 
 
 
   const {signUp,signOut,loadingOut,user,userSign,loadingSign,errorSign,signInWithEmailAndPassword}=myAuth();
-
-   let auth=useAuthStore();
+  let cart=useCartStore()
+  let auth=useAuthStore();
    //const [user,load,err]=useAuthState(auth)
 
  /*const [
@@ -62,8 +72,6 @@ const Main= ({params}:{params:{session:Session}}) => {//our page / tsx file conf
    */
   const [arr,SetArr]=useState([]);
     useEffect(()=>{
-       // dispatch(fetchAsyncData())
-    // useAuth();
 
     },[])
 /*if(loading) return <Loading />
@@ -108,10 +116,16 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   elem?.scrollIntoView({
     behavior: "smooth",
   });
+  window.scrollTo({
+    top:elem?.getBoundingClientRect().top,
+    behavior:'smooth'
+  })
+  
 };
   return (
-    <div className='sticky bg-[#fff444] text-black'>
-     <Link onClick={handleScroll} href="#section-1">Dropdown link to section</Link>
+   
+     <div className='sticky bg-[#fff444] text-black'>
+    <section id='section-0'>  <Link onClick={handleScroll} href="#section-1">Dropdown link to section</Link>
       
        <p>
         {auth.user.displayName}
@@ -139,7 +153,8 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     <p>Congrats youre being logged in rn, taking too long?</p>
   </div>:<></>
 }
-</div>
+</div></section>
+   
          
 <button onClick={()=>signOut()} >Click me to logout</button>
         
@@ -152,7 +167,7 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         </div>
        
           {/* add href with hash to an elementId */}
-          <Link className="btn" href="#section-1">
+          <Link className="btn this" href="#section-1">
             Scroll to Section 1
           </Link>
         
@@ -167,9 +182,16 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
           <Link className="btn" href="home/#section-1">
             Back to hdropdown
           </Link>
+          <ScrollLink  href="#section-0" className="text-black">
+            Back to Top
+          </ScrollLink>
+          <h2>CartList</h2>
+          
         </div>
       </div>
     </div>
+   
+   
   
   )}
   

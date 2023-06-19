@@ -23,6 +23,7 @@ import Navbar from '../components/Navbar';
 import { useAuthStore } from '../store/zustand/auth.store';
 import Home from './page';
 import { useSession } from 'next-auth/react';
+import BaseLayout from '../components/BaseLayout';
 const RootLayout=({children,session }: { children: React.ReactNode,session:Session })=>{
 
 
@@ -50,8 +51,8 @@ const RootLayout=({children,session }: { children: React.ReactNode,session:Sessi
          
          <Header active={isLoading==true?'':''} />
          
-         
-            {children}</Providers>
+         <BaseLayout>{children}</BaseLayout>
+            </Providers>
             <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 
             </body>

@@ -1,7 +1,32 @@
+import { useState } from "react";
 import styles from "../../styles/Cart.module.css";
 import Image from "next/image";
-
+import axios from "axios"
+//import { useRecoilState } from 'recoil'
+//import { cartState } from '../atoms/cartState'
+type CartState={
+  
+}
+import { useCartStore } from "../../store/zustand/cart.store";
 const Cart = () => {
+  const store=useCartStore();
+  const [cartItems, setCartItem]:any = store.tempOrder;
+
+  const totalPrice = () => {
+      let total = 0
+      cartItems?.forEach((item:any) => total += (item.price * item.quantity))
+      return total
+  }
+
+  const createCheckoutSession = async () => {
+
+      axios.post('api/checkout_sessions', { cartItems })
+          .then(res => {
+              console.log(res)
+              window.location = res.data.sessionURL
+          })
+          .catch(err => console.log(err))
+  }
   return (
     <div className={styles.container}>
       <div className={styles.left}>

@@ -4,6 +4,7 @@
         url:string
     }
 }*/
+
 import { createNextState } from "@reduxjs/toolkit"
 //import {CartState}  from "././redux/slices/cartSlice"
 //export {default as CartState} from "././redux/slices/cartSlice"
@@ -123,4 +124,30 @@ export type Todo = {
   id: number,
   title: string,
   completed:boolean
+}
+import { PortableTextBlock } from "sanity"
+export type Product={
+  _id: string,
+  _createdAt: Date,
+  title: string,
+  slug: string,
+  content: PortableTextBlock[]
+}
+
+export type Project = {
+  _id: string;
+  createdAt: Date;
+  name: string;
+  slug: string;
+  image: string;
+  url: string;
+  content: PortableTextBlock[];
+}
+export type Dish={
+  _id:string;
+  name: string;
+  slug: string;
+  image: string;
+  url: string;
+  content: PortableTextBlock[];
 }

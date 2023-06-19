@@ -38,7 +38,7 @@
     .headerright{
         @apply 
     }
-    .sidebar{
+    .sidebarfb{
         @apply pl-2 mt-5 max-w-[500px] xl:min-w-[300px] xl:w-5 flex-shrink px-2 text-center items-center
     }
 
@@ -92,6 +92,66 @@
   }
   .popOverIcon{
     @apply ml-2 h-5 w-5 text-orange-300 transition duration-100 ease-in-out group-hover:text-opacity-80
+  }
+  .layout {
+    @apply flex h-screen relative gap-8;
+  }
+  
+  .layout__main-content {
+    @apply flex-grow;
+  }
+  
+  .sidebar__wrapper {
+    @apply relative;
+  }
+  
+  .sidebar {
+    @apply bg-slate-100 sidebarfb p-4 transition-all duration-500 ease-in-out overflow-hidden;
+  }
+  
+  .sidebar__top {
+    @apply flex items-center gap-4 pb-4 mb-4 border-b border-blue-300;
+  }
+  
+  .sidebar__logo {
+    @apply w-14 h-14 object-contain rounded-md;
+  }
+  
+  .sidebar__logo-name {
+    @apply text-lg font-semibold;
+  }
+  
+  .sidebar__list {
+    @apply list-none;
+  }
+  
+  .sidebar__link {
+    @apply inline-block text-base no-underline text-black px-4 py-2 bg-red-400 mb-4 rounded-md;
+  }
+  
+  .sidebar__link--active {
+    @apply text-white bg-green-500;
+  }
+  
+  .sidebar__icon {
+    @apply inline-block text-lg;
+  }
+  
+  .sidebar__name {
+    @apply ml-2;
+  }
+  
+  [data-collapse="true"] {
+    @apply w-14;
+  }
+  
+  [data-collapse="true"] .sidebar__name,
+  [data-collapse="true"] .sidebar__logo-name {
+    @apply hidden;
+  }
+  
+  .btn {
+    @apply absolute top-14 right-0 border-none bg-gray-400 w-4 h-4 border-green-400 rounded-full flex justify-center items-center cursor-pointer -translate-x-1/2 text-lg;
   }
 }
 

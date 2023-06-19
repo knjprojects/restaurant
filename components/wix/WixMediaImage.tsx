@@ -1,6 +1,6 @@
 import { media as wixMedia } from '@wix/api-client';
 import Image, { ImageProps } from 'next/image';
-import { PLACEHOLDER_IMAGE } from '../../utils/constants';
+import { PLACEHOLDER_IMAGE } from '../../utils/lib/constants';
 
 function getImageUrlForMedia(media: string, width: number, height: number) {
   if (media.startsWith('wix:image')) {

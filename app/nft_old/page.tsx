@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import {client, urlFor} from "../../utils/sanity"
+import {client, urlFor} from "../../sanity/sanity"
 type Props = {}
 import { NFTCollection } from '../../typings'
 const NFTCollections = (props: Props) => {

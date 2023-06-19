@@ -22,8 +22,3 @@ export const useAuthStore = create<AuthState>()(set => ({
 	setUser: (user: User) => set(state => ({ ...state, user: user })),
 }));
 
-export const cartStore = create((set) => ({
-	tempOrder: [],
-	addToTempOrder: (items:any) => set((state:any) => ({ tempOrder: [...state.tempOrder, items] })),
-	setInitialTempOrder: (order:any) => set(() => ({ tempOrder: order })),
-}))
