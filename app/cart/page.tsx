@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import styles from "../../styles/Cart.module.css";
 import Image from "next/image";
 import axios from "axios"
@@ -7,7 +7,7 @@ import axios from "axios"
 type CartState={
   
 }
-import { useCartStore } from "../../store/zustand/cart.store";
+import { useCartStore } from "../../zustand/cart.store";
 const Cart = () => {
   const store=useCartStore();
   const [cartItems, setCartItem]:any = store.tempOrder;

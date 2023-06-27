@@ -4,7 +4,7 @@ import styles from "../../../styles/Product.module.css";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { GetServerSideProps } from "next";
-import { imgClient } from "../../../utils/sanity";
+//import { imgClient } from "../../../utils/sanity";
 
 import toast from 'react-hot-toast';
 import  {getProjects} from "../../../sanity/sanity_utils"

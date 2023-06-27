@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { FlagIcon,HomeIcon } from '@heroicons/react/24/solid';
 type Props = {}
 
-const HeaderIcon = ({Icon,active,key}:any) => {
+const HeaderIcon = ({ Icon, key }: any) => {
+    const active=zustand.activeTab
     //adding the cursor to the div and not icon because we want a little background with our icon as well when we hover
     //add click effect active:
     //we group our headericons with similar hover code

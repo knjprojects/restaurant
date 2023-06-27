@@ -7,7 +7,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Link from "next/link";
 import { useContext } from "react";
 import { SidebarContext } from "../context/SidebarContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams,usePathname } from "next/navigation";
 
 const sidebarItems = [
   {
@@ -34,6 +34,9 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const router = useRouter();
+  
+  const params = useSearchParams();
+  const search = usePathname();// params.get('page')
   const { isCollapsed, toggle } = useContext(SidebarContext);
 
   return (
@@ -58,7 +61,7 @@ const Sidebar = () => {
               <li className="sidebar__item" key={name}>
                 <Link
                   className={`sidebar__link ${
-                    router.pathname === href ? "sidebar__link--active" : ""
+                    search === href ? "sidebar__link--active" : ""
                   }`}
                   href={href}
                 >

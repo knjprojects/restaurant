@@ -1,9 +1,7 @@
 "use client";
 import React, { ReactNode } from 'react'
-//import Header from './Header'
-//import '../globals.css'
+import '../globals2.css'
 import Providers from '../provider';
-//import Home from './page';
 import Header from '../Header'
 const ProductLayout=({children,session}:any ) =>{
   //const { store, props } = wrapper.useWrappedStore(children);
@@ -13,15 +11,12 @@ const ProductLayout=({children,session}:any ) =>{
   <html>
             <head></head>
     <body> <Providers session={session}>
-        
-         <Header />
+        <Header />
             {children}</Providers>
-         
             </body>
           </html>
 
   </>);
-
 }
 //wrapper may be uneccessary
 export default ProductLayout;

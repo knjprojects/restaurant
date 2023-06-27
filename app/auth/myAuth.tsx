@@ -1,13 +1,13 @@
-"use client";
-import React, { useState } from 'react'
+//"use client";
+import React from 'react'
 
 type Props = {}
 import {User,getAuth,UserCredential} from "firebase/auth"
 import { useAuthState,useCreateUserWithEmailAndPassword,useSignInWithEmailAndPassword,useSignOut } from 'react-firebase-hooks/auth'
-import {app} from '../../utils/firebase';
+import {app,auth} from '../../utils/firebase';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '../../store/zustand/auth.store';
-const auth=getAuth(app);
+import { useAuthStore } from '../../zustand/auth.store';
+
 
 
 type myUserDetails={

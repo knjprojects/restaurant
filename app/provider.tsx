@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
-import { Provider } from 'react-redux'
+//import { Provider } from 'react-redux'
 import { ThemeProvider } from "next-themes"; 
-import { store } from '../store/redux/store'
+import { store } from '../../backups/redux/store'
 //import { wrapper } from '../redux/store'
 import { Session } from 'next-auth'
 type Props = {}
@@ -12,7 +12,7 @@ const Providers = ({children,session}:{session:Session,children:React.ReactNode}
   return (
     //remove redux provider eventually
     <SidebarProvider>
-      <Provider store={store} >
+      
     <ThemeProvider
       disableTransitionOnChange
       attribute="class"
@@ -24,7 +24,7 @@ const Providers = ({children,session}:{session:Session,children:React.ReactNode}
     
     </SessionProvider>
     </ThemeProvider>
-    </Provider>
+    
     </SidebarProvider>
    
   )

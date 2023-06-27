@@ -1,5 +1,5 @@
-'use client'
-import React,{useEffect,useRef, useState,FormEvent} from 'react'
+//'use client'
+import React,{FormEvent} from 'react'
 import './globals.css'
 import './globals2.css'
 import Header from './Header'
@@ -8,14 +8,10 @@ import Header from './Header'
 
 import { getSession,useSession } from 'next-auth/react'
 import { Session} from 'next-auth'
-/*import type { AppProps } from 'next/app'
 
-*/
 import { BsEmojiSmileUpsideDownFill } from 'react-icons/bs'
-//adding firebase auth
-import Login from '../components/Login';
 
-import {auth,db} from '../utils/firebase'
+//import {auth,db} from '../utils/firebase'
 
 import Home  from '../app/home/page'
 import Loading from '../components/loading';
@@ -39,72 +35,21 @@ import ScrollLink from '../components/ScrollLink'
 import CartList from './cart/CartList'
 import Navbar from "../components/Navbar"
 
-
 import data from "../utils/lib/data/data.json"
-import { useAuthStore } from '../store/zustand/auth.store'
-import { useCartStore } from '../store/zustand/cart.store'
+import { useAuthStore } from '../zustand/auth.store'
+import { useCartStore } from '../zustand/cart.store'
+import TextHover from '../components/TextHover'
 
 const Main= ({params}:{params:{session:Session}}) => {//our page / tsx file conflicts with 
-
-
-
-
   const {signUp,signOut,loadingOut,user,userSign,loadingSign,errorSign,signInWithEmailAndPassword}=myAuth();
   let cart=useCartStore()
   let auth=useAuthStore();
-   //const [user,load,err]=useAuthState(auth)
 
- /*const [
-  createUserWithEmailAndPassword,//a function i call to initiate registration, just good copding practise i guess, i return all 4 values
-  userDetails,
-  loading,
-  error,
-  ] = useCreateUserWithEmailAndPassword(auth);
-  const [
-    signInWithEmailAndPassword,
-    userSign,
-    loadingSign,
-    errorSign,
-    ] = useSignInWithEmailAndPassword(auth);
-   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-	};
-   */
-  const [arr,SetArr]=useState([]);
-    useEffect(()=>{
-
-    },[])
-/*if(loading) return <Loading />
-if(!user)return <Login />
-else */
-const getMapData=async({param}:any)=>{
-  let data=[];
-  try {
-    await fetch(`${param}`).then((res)=>{
-      return res.json();
-    })
-  } catch (error) {
-    
-  }
-}
-type DiscMap={
-  buttonData:string;
-  panelData:string;
-}
-type PropData=
-  
-{
-    map:DiscMap[],
-    type:string,
-    theme:string
-  }
-const[propData,setPropData]:any =useState({map:[],type:'grid',theme:'rest'})
-const route=useRouter();
-//route.push('/home')
-if(userSign!==null){
-
-  //return <Loading />
-}
+  /*if(userSign!==null){
+    const route=useRouter();
+    route.push('/home')
+    return <Loading />
+  }*/
 const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   // first prevent the default behavior
   e.preventDefault();
@@ -123,17 +68,20 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   
 };
   return (
-   
-     <div className='sticky bg-[#fff444] text-black'>
-    <section id='section-0'>  <Link onClick={handleScroll} href="#section-1">Dropdown link to section</Link>
-      
+    <div className='sticky bg-[#fff444] text-black'>
+      <section id='section-0'>  <Link onClick={handleScroll} href="#section-1">Dropdown link to section</Link>
+        <ScrollLink href="#section-photo" className="text-black">
+          <TextHover image='' text='this is a texthover'/>
+          Go to  Photo Picker
+          </ScrollLink>
        <p>
         {auth.user.displayName}
         
-        yes it works lol, migrate all my redux code to zustand
+        Migrate all my redux code to zustand. hEY, DON'T FORGET TO ADD domain images to nextconfig, then build
        </p>
+      
        <button className='text-white' onClick={()=>signInWithEmailAndPassword('iluvwendy99@gmail.com','123456')} >Press me to sign in</button>
-       <Discloshas  {...propData} />
+       
        {
 
        }
@@ -186,7 +134,9 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
             Back to Top
           </ScrollLink>
           <h2>CartList</h2>
-          
+          <section id="section-photo">
+        Let's initiate a photopicker function
+       </section>
         </div>
       </div>
     </div>

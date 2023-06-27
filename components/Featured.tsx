@@ -49,9 +49,7 @@ const Featured = () => {
         <Image src="/../public/img/arrowr.png"  alt="arrowright" width={20} height={20}/>
       </div>
     </div>
-    <div className="">
-
-    </div>
+    
     </div>
     
   );

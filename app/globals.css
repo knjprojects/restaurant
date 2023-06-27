@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,7 +79,7 @@
   @apply h-full w-full relative bg-gradient-to-b from-yellow-50 to-blue-300
 }
 .navHeaderRest{
-  @apply h-full w-full p-2 bg-[#d1411e] flex sticky top-0 z-0 items-center text-center
+  @apply h-full w-full p-2 flex sticky top-0 z-0 items-center text-center
 }
 .navHeaderItem{
   @apply flex items-center

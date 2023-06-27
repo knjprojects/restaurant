@@ -4,28 +4,44 @@ module.exports = {
   env:{
     NEXT_PUBLIC_SANITY_PROJECT_ID: "okxmnsmd",
     NEXT_PUBLIC_SANITY_DATASET: "production",
-    
-    wixAccessToken:'',
+    NEXT_PUBLIC_FIREBASE_API_KEY:'AIzaSyCTJMHJXvrHXqz7vDi6liqN9Ro0suuszs4',
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:'famousrecipe-44035.firebaseapp.com',
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID:'famousrecipe-44035',
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET:'famousrecipe-44035.appspot.com',
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:'523349287196',
+    NEXT_PUBLIC_FIREBASE_APP_ID:'1:523349287196:web:b020ffa3ac34f5cd5adad9',
+    NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID:'G-JJ4CP5BPS4',
+
+
+
+    wixAccessToken:'',},
 
 
   images: {
-    domains: [
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-icons-png.flaticon.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+    /*domains: [
     'cdn.sanity.io','assets.vercel.com','images.pexels.com','fakestoreapi.com','press.aboutamazon.com',
     "firebasestorage.googleapis.com",
     "platform-lookaside.fbsbx.com",
     'upload.wikimedia.org',
-      'cdn-icons-png.flaticon.com',
-    'i.ibb.co','static.dezeen.com','i.pinimg.com'
+    'i.ibb.co','static.dezeen.com','i.pinimg.com','cdn-icons-png.flaticon.com'
 
     ],
   formats: ['image/avif', 'image/webp'],
+  },*/
   },
-
 swcMinify: true,
 reactStrictMode: true,
-}
 
 
+  }
 
 
 
@@ -70,4 +86,3 @@ NEXT_PUBLIC_GOOGLE_API_CLIENT_ID=278593027698-5afo3eckt95aud897grifi8rm6j54e26.a
 NEXT_PUBLIC_GOOGLE_API_CLIENT_SECRET=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
 NEXT_PUBLIC_SERVER_DOMAIN='http://localhost:3000' 
 },*/
-}

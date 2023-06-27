@@ -8,7 +8,7 @@ import type { Session } from "next-auth"
 import About from '../../components/About'
 
 import Link from 'next/link'//adding firebase auth
-import Login from '../../components/Login';
+import Login from '../../components/Login.TilWinDStyledComponentstsx';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import {auth,db} from '../../utils/firebase'
 
@@ -19,10 +19,10 @@ import Featured from '../../components/Featured'
 import PizzaList from '../../components/PizzaList'
 import styles from '../../styles/Home.module.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAsyncData } from '../../store/redux/features/cartSlice'
+import { fetchAsyncData } from '../../../backups/redux/features/cartSlice'
 //import { AppDispatch, AppState } from '../../store/redux/store'
 import Reviews from '../../components/maps/Reviews'
-import Footer from '../../components/Footer'
+import Footer from '../../components/FooterTimer'
 
 import { Carousel } from 'flowbite-react'
 import { useRouter } from 'next/navigation'

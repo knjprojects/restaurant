@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "utils/firebase.tsx", "store/zustand/auth.store.ts", "sanity/sanity.js", "utils/hooks/useAuth.tsx.txtextras"  ],
+, "utils/firebase.tsx", "zustand/auth.store.ts", "sanity_backup/sanity.js", "utils/hooks/useAuth.tsx.txtextras", "components/Login.TilWinDStyledComponentstsx"  ],
   "exclude": [
     "node_modules"
   ]

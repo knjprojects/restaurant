@@ -5,9 +5,7 @@ import styles from "../styles/Navbar.module.css";
 import React, { useState,useRef } from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
-//import { SpringContext } from 'react-spring';
-import { AppDispatch, AppState } from '../store/redux/store'
-import { useSelector, useDispatch } from 'react-redux'
+
 import AnimatedDropdown from "./Dropdown";
 import {
     BellIcon,
@@ -30,7 +28,7 @@ import {
 import HeaderIcon from '../components/HeaderIcon'
 import { FiShoppingCart } from "react-icons/fi"
 import { useRecoilState } from 'recoil'
-import { cartState } from '../atoms/cartState'
+//import { cartState } from '../atoms/cartState'
 
 
 
@@ -44,12 +42,6 @@ import { signOut, useSession } from 'next-auth/react';
 import { SessionProvider } from 'next-auth/react'
 type Props = {}
 
-
-const candal=Candal({
-  weight: '400',  
-  style: ['normal'],
-subsets: ['latin'],  
-display: 'swap',})
 const Navbar = () => {
   const ref=useRef();
   const handleRefClick=()=>{
@@ -61,9 +53,7 @@ const Navbar = () => {
    // const isAuthenticated=session.status;//are we even authenticated tho?
    //const dispatch=useDispatch<AppDispatch>();
  const activeTab=useState(0);
-   const generateHeaders=async()=>{
-    
-   }
+  
    /*function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }(*/
@@ -128,20 +118,18 @@ const Navbar = () => {
   ];
  
  
-  const loggeduser=useSelector((state:AppState)=>state.auth.auth.authUser)
-  const active=useState(loggeduser)
+  //const loggeduser=useSelector((state:AppState)=>state.auth.auth.authUser)
+  const active=useState('')
   return (
-    <div className="sticky top-0 z-50 ">
-      
-   
-  
-
-      <div className='sticky top-0 z-50 bg-orange-200 flex items-center p-2 lg:px-5 shadow-2-xl rounded-full'>
-    {/* left*/} 
-            <div className='headerleft'>
-            <Image src="/../public/img/logo.png" alt="logo here" width={300} height={100}
+    <div className="flex sticky top-0 z-50 ">
+      <div className="flex-row">
+        <div><Image src="/../public/img/logo.png" alt="logo here" width={300} height={100}
         className='w-36 md:w-56 pb-10 md:pb-0 object-contain' />
-        <p className={candal.className}>Famous</p>
+        <p className={`font-merienda`}>Famous</p></div>
+        <div className='sticky top-0 z-50 bg-orange-200 flex items-center p-2 lg:px-5 shadow-2-xl rounded-full'>
+    {/* left*/} 
+            
+            
                {/*} <Image src="https://firebasestorage.googleapis.com/v0/b/facebook-983c4.appspot.com/o/brain.jpeg?alt=media&token=117b1744-92ba-4ef5-90ea-f4937ede5f79" alt='image'
     
                 height={40}  width={40} className='rounded-full shadow-xl shadow-yellow-200'/>  */}
@@ -153,7 +141,7 @@ const Navbar = () => {
                     </form>
                    
                 </div>
-            </div>
+            
             {/* center*/} 
             <div className='flex justify-center items-start flex-grow'>
             
@@ -206,6 +194,11 @@ const Navbar = () => {
           <Image src="/../public/img/telephone.png" alt="" width="32" height="32" />
         </div>
       </div>
+      </div>
+   
+  
+
+      
     </div>
        
     

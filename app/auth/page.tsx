@@ -1,10 +1,10 @@
 "use client";
-import { FormEvent, useEffect, useState } from 'react';
-
+import { FormEvent, useRef,useState } from 'react';
+import {useForm} from "react-hook-form"
 //import useAuth from '../../utils/hooks/useAuth.tsx.txtextras';
-import { useAuthStore } from '../../store/zustand/auth.store';
+import { useAuthStore } from '../../zustand/auth.store';
 //main firebase app from.js file
-import { app } from '../../utils/firebase';
+//import { app } from '../../utils/firebase';
 //firebase/auth default functions
 import { getAuth, signOut} from 'firebase/auth';
 //react-firebase-hooks specials
@@ -15,6 +15,13 @@ import { useAuthState,useIdToken,useCreateUserWithEmailAndPassword,useSignInWith
 const fireAuth = getAuth(app);
 import {useRouter} from 'next/navigation';
 const Auth = () => {
+	const { register, handleSubmit } = useForm();
+
+
+	const userName = useRef("")
+	const pass=useRef("")
+
+
 	//let fireAuth:any={}
 	//import {useRouter} from 'next/navigation';
 	const route=useRouter();
@@ -26,13 +33,13 @@ const Auth = () => {
 
 	//const { isLoading, user, error } = useAuthStore();
 	const [ userCred, isLoading, errorMessage ] = useAuthState(fireAuth);
-	useEffect(()=>{
+	/*useEffect(()=>{
 		if(userCred!=null){
 			route.push('/home');
 		}
 	},[
 		userCred
-	])
+	])*/
 	const toggleAuth = (state: 'signup' | 'signin') => {
 		setAuth(state);
 	};
@@ -61,7 +68,7 @@ const Auth = () => {
 				<div className='form-floating'>
 					<input
 						type='email'
-						onChange={e => setEmail(e.target.value)}
+						onChange={e => (userName.current=e.target.value)}//setEmail(e.target.value)}
 						value={email}
 						className={`form-control ${invalid && 'is-invalid'} text-black`}
 						id='floatingInput'
@@ -73,7 +80,7 @@ const Auth = () => {
 				<div className='form-floating mt-2'>
 					<input
 						type='password'
-						onChange={e => setPassword(e.target.value)}
+						onChange={e => (pass.current=e.target.value)}//setPassword(e.target.value)}
 						value={password}
 						className={`form-control ${invalid && 'is-invalid'} text-black`}
 						id='floatingPassword'

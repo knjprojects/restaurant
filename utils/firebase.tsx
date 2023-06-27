@@ -11,7 +11,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getApp } from "firebase/app";
-
+import { getStorage } from "firebase/storage";
 import {
   
   getFirestore,
@@ -34,10 +34,10 @@ const firebaseConfig = {
 };
 
 
-const app=getApps().length ===0?initializeApp(firebaseConfig):getApps()[0];
-
-const auth = getAuth(app);
-  const db:any = getFirestore()
+export const app=getApps().length ===0?initializeApp(firebaseConfig):getApps()[0];
+export const storage = getStorage(app);
+export const auth = getAuth(app);
+export const db:any = getFirestore(app)
   const readUserData = async (userId:any) => {
   try {
     const userRef = db.collection('users').doc(userId);
@@ -92,7 +92,7 @@ const signInWithGoogle = async () => {
   const q = query(collection(db, "users"), where("uid", "==", user.uid));
   const docs = await getDocs(q);
   if (docs.docs.length === 0) {
-    await addDoc(collection(db, "users"), {
+    await addDoc(collection(db, "Users"), {
     uid: user.uid,
     name: user.displayName,
     authProvider: "google",
@@ -110,4 +110,4 @@ const signInWithGoogle = async () => {
 
 
 //const analytics = getAnalytics(app);
-export {app,firebaseConfig,auth,db,googleProvider,readUserData}
+//export {app,firebaseConfig,auth,db,googleProvider,readUserData}

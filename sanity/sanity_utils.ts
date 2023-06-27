@@ -3,8 +3,8 @@ import { Project,Dish } from "../typings";
 
 
 const config=({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset:process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+  projectId: process.env.SANITY_STUDIO_SANITY_PROJECT_ID,
+  dataset:process.env.SANITY_STUDIO_SANITY_DATASET || "production",
   //apiVersion:"2022-10-16",
   //useCdn:false,
   //token:process.env.sanityToken

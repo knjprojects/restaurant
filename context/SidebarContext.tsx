@@ -24,7 +24,7 @@ const SidebarProvider = ({ children }:any) => {
 
 
   return (
-    <SidebarContext.Provider value={{initialValue:initialValue,toggle:toggleSidebarcollapse}}>
+    <SidebarContext.Provider value={{isCollapsed:initialValue,toggle:toggleSidebarcollapse}}>
       {children}
     </SidebarContext.Provider>
   );
