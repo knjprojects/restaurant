@@ -1,20 +1,13 @@
-//'use client'
+'use client'
 import React,{FormEvent} from 'react'
 import './globals.css'
-import './globals2.css'
-import Header from './Header'
 
-//import { SessionProvider } from "next-auth/react"
-
+import { ArrowDownCircleIcon } from '@heroicons/react/24/solid'
 import { getSession,useSession } from 'next-auth/react'
 import { Session} from 'next-auth'
 
-import { BsEmojiSmileUpsideDownFill } from 'react-icons/bs'
-
-//import {auth,db} from '../utils/firebase'
-
-import Home  from '../app/home/page'
-import Loading from '../components/loading';
+import { BsEmojiSmileUpsideDownFill,BsBodyText } from 'react-icons/bs'
+//import Loading from '../components/loading';
 import { useRouter } from 'next/navigation'
 type Props = {
   session:Session
@@ -22,28 +15,23 @@ type Props = {
 
 
 
-import Discloshas from '../components/Disclosures'
-
-//import useAuth from './auth/useAuth'
-//import { Auth, getAuth, User } from 'firebase/auth'
 import {useAuthState,useCreateUserWithEmailAndPassword,useSignInWithEmailAndPassword,useSignOut } from 'react-firebase-hooks/auth'
-import myAuth from './auth/myAuth'
 import { signOut } from 'firebase/auth'
 import Link from 'next/link'
 import { Carousel } from 'flowbite-react'
 import ScrollLink from '../components/ScrollLink'
-import CartList from './cart/CartList'
-import Navbar from "../components/Navbar"
 
+import Navbar from "../components/Navbar"
+import famous from '../public/assets/img/famous.jpeg'
 import data from "../utils/lib/data/data.json"
 import { useAuthStore } from '../zustand/auth.store'
 import { useCartStore } from '../zustand/cart.store'
 import TextHover from '../components/TextHover'
-
-const Main= ({params}:{params:{session:Session}}) => {//our page / tsx file conflicts with 
-  const {signUp,signOut,loadingOut,user,userSign,loadingSign,errorSign,signInWithEmailAndPassword}=myAuth();
-  let cart=useCartStore()
-  let auth=useAuthStore();
+import Image from 'next/image'
+const Home= ({params}:{params:{session:Session}}) => {//our page / tsx file conflicts with 
+  //const {signUp,signOut,loadingOut,user,userSign,loadingSign,errorSign,signInWithEmailAndPassword}=myAuth();
+  //let cart=useCartStore()
+  //let auth=useAuthStore();
 
   /*if(userSign!==null){
     const route=useRouter();
@@ -68,75 +56,73 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   
 };
   return (
-    <div className='sticky bg-[#fff444] text-black'>
-      <section id='section-0'>  <Link onClick={handleScroll} href="#section-1">Dropdown link to section</Link>
-        <ScrollLink href="#section-photo" className="text-black">
-          <TextHover image='' text='this is a texthover'/>
-          Go to  Photo Picker
-          </ScrollLink>
-       <p>
-        {auth.user.displayName}
-        
-        Migrate all my redux code to zustand. hEY, DON'T FORGET TO ADD domain images to nextconfig, then build
-       </p>
-      
-       <button className='text-white' onClick={()=>signInWithEmailAndPassword('iluvwendy99@gmail.com','123456')} >Press me to sign in</button>
-       
-       {
-
-       }
-       {user?<p>user found, auth initiated</p>:<>No user found before logging in?</>}
-       {loadingSign? <p>Loading user auth...</p> :<BsEmojiSmileUpsideDownFill />
-       }
-        
-          <div className='flex flex-row columns-2 sm:space-x-2 lg:space-x-4'> {user || userSign? 
-          <p className='text-white'>
-          {user?.email}
-          </p>:
-          <p>user loggedout</p>
-        
-          
-}{
-  userSign?<div className='waiting'>
-    <p>Congrats youre being logged in rn, taking too long?</p>
-  </div>:<></>
-}
-</div></section>
-   
+    <div className="sticky bg-[url('/assets/img/bg.png')] snap-y snap-mandatory h-screen w-screen overflow-scroll scroll-m-1 scroll-p-1">
+      <div className='surround mt-40'>
+        <p className='text-black font-bold font-merienda'>
+          Welcome to Famous Recipe
+        </p>
+        <section id='section-0' className='h-48 text-center'>
          
-<button onClick={()=>signOut()} >Click me to logout</button>
-        
-        <div className='flex flex-row h-20'>
-
-          <img src="/img/online/live.png" alt="nani?" className='float-right' width={200} height={120} />
-          <p className=''>bro?</p>
-          {loadingOut? <p className='text-black'>Signing you out</p>:<></>
-          }
+          <img src='/assets/img/featured3.png' alt='homeimage' width={150} height={100} className='lg:float-right sm:grid shadow-md shadow-amber-300 pl-2' />
+           <p className='text-black bg-gray-50 lg:text-center sm:text-left lg: w-1/2 sm:w-full'>
+            {`tjdchhhhhhhhhhhhhhhhhgfffffffffffffffffffft`}
+            </p>
+        </section>
+      </div>
+      <section className='flex flex-col snap-center' id='section-1'>
+        <div className='sm:flex lg:grid justify-right content-end bg-blend-luminosity bg-my_bg_image'>
+          <p className='text-black'>Famous Recipe is a Canadian and Caribbean styled restaurant. Offering unique cuisines, customer service and just real good food. We are happy to announce that we are online and ready to take your orders!</p>
+          <Image src={famous} alt='landingimage' className='lg:float-right p-3 sm:justify-left' width={100}  height={40}/>
+          <div className='flex flex-2'> <ScrollLink href="#section-photo" className="text-black">
+            <div className='flex flex-row space-x-2 m-3 bg-gray-100 rounded-md'>
+              <ScrollLink className='text-center 'href='#section-photo' >More</ScrollLink>
+              <ArrowDownCircleIcon color='#051C1AE6' />
+          </div>
+          </ScrollLink>
+          </div>
         </div>
+        {/*<TextHover image='' text='this is a texthover'/>*/}
+        
+        <Link href='/products?search=currychicken'> Lets view he first dish on sanity</Link>
+         <div className='flex flex-grow'>
+         <ScrollLink className="text-purple-300 font-bold" href="#section-1">
+            More
+        </ScrollLink>
+          <BsBodyText color='#49D5D5' />
+          </div>
+
+      </section>
+     
+      <section id="gallery">
+         <section id="contact">
+        <div className='surround'>
+          <p className='font-bold shadow-md shadow-red-300'>Contact details here</p>
+        </div>
+      </section>
+        
+   </section>
+         
+
+        
        
-          {/* add href with hash to an elementId */}
-          <Link className="btn this" href="#section-1">
-            Scroll to Section 1
-          </Link>
+      {/* add href with hash to an elementId */}
+     
+         
         
         <div className='h-60 w-100 bg-green-400'>hey hey</div>
-        <div className='h-60 w-full bg-red-300' id='section1'>ayo again</div>
+      <section className=''id='section-photo'>  <div className='h-60 w-full bg-red-300' id='section1'>ayo again</div>
+        </section>
+      
+        
         <div
         className="grid place-content-center min-h-screen bg-gray-100"
         id="section-1"
       >
         <div className="flex flex-col items-center gap-4">
           <h2 className="text-xl my-2">Section 1</h2>
-          <Link className="btn" href="home/#section-1">
-            Back to hdropdown
-          </Link>
-          <ScrollLink  href="#section-0" className="text-black">
-            Back to Top
-          </ScrollLink>
+
           <h2>CartList</h2>
-          <section id="section-photo">
-        Let's initiate a photopicker function
-       </section>
+         
         </div>
       </div>
     </div>
@@ -146,7 +132,7 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   )}
   
 
-export default Main
+export default Home
 
 
 

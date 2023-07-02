@@ -2,16 +2,16 @@
 import React from 'react'
 //import { Provider } from 'react-redux'
 import { ThemeProvider } from "next-themes"; 
-import { store } from '../../backups/redux/store'
+//import { store } from '../../backups/redux/store'
 //import { wrapper } from '../redux/store'
 import { Session } from 'next-auth'
 type Props = {}
 import { SessionProvider } from 'next-auth/react'
-import { SidebarProvider } from "../context/SidebarContext";
+
 const Providers = ({children,session}:{session:Session,children:React.ReactNode}) => {
   return (
     //remove redux provider eventually
-    <SidebarProvider>
+ 
       
     <ThemeProvider
       disableTransitionOnChange
@@ -25,7 +25,7 @@ const Providers = ({children,session}:{session:Session,children:React.ReactNode}
     </SessionProvider>
     </ThemeProvider>
     
-    </SidebarProvider>
+   
    
   )
 }

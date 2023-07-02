@@ -6,7 +6,7 @@ import type { Session } from "next-auth"
 
 
 //headers, navbars, other components
-import Header from './Header'
+
 import Navbar from '../components/Navbar';
 import Home from './page';
 
@@ -22,24 +22,12 @@ import BaseLayout from '../components/BaseLayout';
 const RootLayout=({children,session }: { children: React.ReactNode,session:Session })=>{
   const { isLoading, user, error } = useAuthStore();
   return (<> 
-  <html>
-      <head>
+   <Providers session={session}>
         
-        <style>
-          { /*add scrits and fonts here */}
-          
-        </style>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous'></link>
-        <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet"></link>
-            </head>
-      <body> <Providers session={session}>
-        <Header active={isLoading==true?'':''} />
         <BaseLayout>{children}</BaseLayout>
             </Providers>
             <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-      </body>
-    </html>
+     
   </>);
 
 }

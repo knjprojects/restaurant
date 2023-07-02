@@ -7,7 +7,7 @@ type Props = {
 
 const TextHover = (props: Props) => {
   return (
-    <div>
+    <div className='w-42 h-32'>
         <img className="absolute inset-0 object-cover
                                 w-full h-full group-hover:opacity-50"
                         src=
@@ -20,7 +20,7 @@ const TextHover = (props: Props) => {
                                 group-hover:translate-y-0">
                                 <div className="p-2">
                                     <p className="text-lg text-white">
-                                        Welcome to GeeksforGeeks.
+                          { props.text}.
                                     </p>
                                     <button className="px-4 py-2 text-sm
                                             text-white bg-green-600">
@@ -32,11 +32,10 @@ const TextHover = (props: Props) => {
                             <>
             <center>
                 <h1 className="text-green-600 text-4xl">
-                    GeeksforGeeks
+                    {props.text}
                 </h1>
                 <h2 className="text-black text-2xl">
-                    Text appears on Hover over image
-                    using Tailwind CSS in React
+                      Description? 
                 </h2>
             </center>
             <div className="flex items-center justify-center mt-12">
@@ -59,7 +58,7 @@ const TextHover = (props: Props) => {
                                         width={100}
                                         className="rounded-full" />
                                     <p className="text-xl text-white">
-                                        Welcome to GeeksforGeeks.
+                                          { props.text}
                                     </p>
                                     <button className="px-4 py-2 text-sm
                                             text-white bg-green-600">

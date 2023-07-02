@@ -17,7 +17,7 @@ type TempOrderState={
 }
 
 export const useCartStore = create<TempOrderState>((set) => ({
-	tempOrder: [],
+	tempOrder:[],
 	addToTempOrder: (items:any) => set((state:TempOrderState) => ({ tempOrder: [...state.tempOrder, items] })),
 	setInitialTempOrder: (order:Order) => set(state => ({ tempOrder: [order] })),
 }))

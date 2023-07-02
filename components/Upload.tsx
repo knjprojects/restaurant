@@ -8,7 +8,13 @@ const UploadImageToStorage = () => {
   const [downloadURL, setDownloadURL] = useState('')
   const [isUploading, setIsUploading] = useState(false)
   const [progressUpload, setProgressUpload] = useState(0)
+  
 
+  const UpdateSettings = (id:string,name:string,age:number,address:string,propic:string) => { 
+    if (propic) { 
+      
+    }
+  }
   const handleSelectedFile = (files: any) => {
     if (files && files[0].size < 10000000) {
       setImageFile(files[0])
@@ -49,6 +55,8 @@ const UploadImageToStorage = () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
             //url is download url of file
             setDownloadURL(url)
+            UpdateSettings('', '', 0, '', url);
+
           })
         },
       )
@@ -60,7 +68,8 @@ const UploadImageToStorage = () => {
   const handleRemoveFile = () => setImageFile(undefined)
 
   return (
-    <div className="container mt-5">
+    <div className="mt-5 bg-gray-300 text-white">
+      <p className='text-white font-bold'>yo</p>
       <div className="col-lg-8 offset-lg-2">
         <Input
           type="file"
@@ -90,7 +99,7 @@ const UploadImageToStorage = () => {
                 </List.Item>
 
                 <div className="text-right mt-3">
-                  <Button
+                  <Button className='text-white bg-blue-400'
                     loading={isUploading}
                     type="primary"
                     onClick={handleUploadFile}

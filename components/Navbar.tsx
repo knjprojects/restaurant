@@ -27,7 +27,7 @@ import {
 } from "@heroicons/react/24/outline"
 import HeaderIcon from '../components/HeaderIcon'
 import { FiShoppingCart } from "react-icons/fi"
-import { useRecoilState } from 'recoil'
+
 //import { cartState } from '../atoms/cartState'
 
 

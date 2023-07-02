@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'category',
+  name: 'cat',
   title: 'Category',
   type: 'document',
   fields: [
@@ -9,6 +9,15 @@ export default defineType({
       name: 'catName',
       title: 'Category name',
       type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'catID',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
     }),
     defineField({
       name: 'description',

@@ -1,20 +1,28 @@
 "use client";
-import { FormEvent, useRef,useState } from 'react';
+import { FormEvent, useEffect, useRef,useState } from 'react';
 import {useForm} from "react-hook-form"
-//import useAuth from '../../utils/hooks/useAuth.tsx.txtextras';
-import { useAuthStore } from '../../zustand/auth.store';
-//main firebase app from.js file
-//import { app } from '../../utils/firebase';
-//firebase/auth default functions
-import { getAuth, signOut} from 'firebase/auth';
-//react-firebase-hooks specials
+import { db,auth as myAuth,storage } from '../../utils/firebase';
+import { signOut} from 'firebase/auth';
 import { useAuthState,useIdToken,useCreateUserWithEmailAndPassword,useSignInWithEmailAndPassword,useSignInWithFacebook } from 'react-firebase-hooks/auth';
 
 
+import { useCountdown} from "react-countdown-circle-timer"
 
-const fireAuth = getAuth(app);
 import {useRouter} from 'next/navigation';
 const Auth = () => {
+	const {
+  path,
+  pathLength,
+  stroke,
+  strokeDashoffset,
+  remainingTime,
+  elapsedTime,
+  size,
+  strokeWidth,
+} = useCountdown({ isPlaying: true, duration: 7, colors: '#abc' })
+	useEffect(() => {
+		
+	 },[])
 	const { register, handleSubmit } = useForm();
 
 
@@ -24,7 +32,8 @@ const Auth = () => {
 
 	//let fireAuth:any={}
 	//import {useRouter} from 'next/navigation';
-	const route=useRouter();
+	const route = useRouter();
+	
 	const [auth, setAuth] = useState<'signup' | 'signin'>('signin');
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
@@ -32,7 +41,7 @@ const Auth = () => {
     
 
 	//const { isLoading, user, error } = useAuthStore();
-	const [ userCred, isLoading, errorMessage ] = useAuthState(fireAuth);
+	const [ userCred, isLoading, errorMessage ] = useAuthState(myAuth);
 	/*useEffect(()=>{
 		if(userCred!=null){
 			route.push('/home');

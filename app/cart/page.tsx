@@ -2,15 +2,12 @@
 import styles from "../../styles/Cart.module.css";
 import Image from "next/image";
 import axios from "axios"
-//import { useRecoilState } from 'recoil'
-//import { cartState } from '../atoms/cartState'
-type CartState={
-  
-}
+
+
 import { useCartStore } from "../../zustand/cart.store";
 const Cart = () => {
   const store=useCartStore();
-  const [cartItems, setCartItem]:any = store.tempOrder;
+  const [cartItems, setCartItem]:any = store!.tempOrder;
 
   const totalPrice = () => {
       let total = 0

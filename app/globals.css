@@ -13,6 +13,9 @@
         bg-purple-100 rounded-full cursor-pointer
         shadow-sm highlight
     }
+    .surround{
+      @apply justify-center text-center bg-yellow-300 rounded-sm border-spacing-2 border border-black text-black font-merienda
+    }
     .inspect{
         @apply hover:scale-95
     }
@@ -40,7 +43,7 @@
         @apply 
     }
     .sidebarfb{
-        @apply pl-2 mt-5 max-w-[500px] xl:min-w-[300px] xl:w-5 flex-shrink px-2 text-center items-center
+        @apply mt-5 max-w-[500px] xl:min-w-[300px] xl:w-5 flex-shrink px-2 text-center items-center
     }
 
     .sidebarwidgetimage{
@@ -87,7 +90,6 @@
 .popOver{
   @apply text-gray-800 hover:text-blue-600
 }
-
   .popOverButton{
     @apply inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75
   }
@@ -96,10 +98,6 @@
   }
   .layout {
     @apply flex h-screen relative gap-8;
-  }
-  
-  .layout__main-content {
-    @apply flex-grow;
   }
   
   .sidebar__wrapper {
@@ -131,7 +129,7 @@
   }
   
   .sidebar__link--active {
-    @apply text-white bg-green-500;
+    @apply text-black font-bold bg-yellow-200;
   }
   
   .sidebar__icon {
@@ -154,9 +152,12 @@
   .btn {
     @apply absolute top-14 right-0 border-none bg-gray-400 w-4 h-4 border-green-400 rounded-full flex justify-center items-center cursor-pointer -translate-x-1/2 text-lg;
   }
+  
 }
 
-
+@layer base{
+  
+}
 
 html,
 body {
@@ -175,8 +176,8 @@ a {
   box-sizing: border-box;
 }
 @font-face {
-  font-family: "burtons";
-  src: url("../public/Burtons.otf");
+  font-family: "merienda";
+  src: url("../public/assets/merienda_black.ttf");
 }
 
 
