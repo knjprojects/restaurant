@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome,AiFillShopping } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
 import { FiMail } from "react-icons/fi";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight,MdShoppingBasket } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight,MdShoppingBasket,MdDashboard } from "react-icons/md";
 import Link from "next/link";
 import { Tab } from "@headlessui/react";
 import { useContext, useState } from "react";
@@ -19,26 +19,20 @@ const sidebarItems = [
     href: "/",
     icon: AiOutlineHome,
   },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: BsPeople,
-  },
-
-  {
-    name: "Cart",
-    href: "/cart",
-    icon: MdShoppingBasket,
+  /*{
+    name: 'dashboard',
+    href: '/dashboard',
+    icon: MdDashboard
   },
   {
     name: "Dishes",
     href: '/products',
-    icon:Dish
-  }
+    icon: AiFillShopping
+  }*/
 
 ];
 import { useTabStore } from "../zustand/sidebar.store";
-import Dish from "./Dish";
+
 const Sidebar = () => {
   const [categories,setCategories] = useState({
     Recent: [
@@ -99,7 +93,7 @@ const Sidebar = () => {
  
   
   return (
-    <div className="relative">
+    <div className="relative bg-yellow-300">
       <button className="btn" onClick={()=>{setCollapse(!isCollapsed)}}>
         {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
       </button>
@@ -112,7 +106,7 @@ const Sidebar = () => {
             src={logo}
             alt="logo"
           />
-          <p className="sidebar__logo-name">The Brave Coders</p>
+          <p className="sidebar__logo-name">Famous Recipe</p>
         </div>
         <ul className="sidebar__list">
           {sidebarItems.map(({ name, href, icon: Icon }) => {

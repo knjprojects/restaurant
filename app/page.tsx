@@ -28,6 +28,7 @@ import { useAuthStore } from '../zustand/auth.store'
 import { useCartStore } from '../zustand/cart.store'
 import TextHover from '../components/TextHover'
 import Image from 'next/image'
+import Parallax from '../components/Parallax'
 const Home= ({params}:{params:{session:Session}}) => {//our page / tsx file conflicts with 
   //const {signUp,signOut,loadingOut,user,userSign,loadingSign,errorSign,signInWithEmailAndPassword}=myAuth();
   //let cart=useCartStore()
@@ -57,11 +58,16 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
 };
   return (
     <div className="sticky bg-[url('/assets/img/bg.png')] snap-y snap-mandatory h-screen w-screen overflow-scroll scroll-m-1 scroll-p-1">
+      
       <div className='surround mt-40'>
         <p className='text-black font-bold font-merienda'>
           Welcome to Famous Recipe
         </p>
         <section id='section-0' className='h-48 text-center'>
+          <Parallax />
+          <div className='overflow-hidden'>
+
+          </div>
          
           <img src='/assets/img/featured3.png' alt='homeimage' width={150} height={100} className='lg:float-right sm:grid shadow-md shadow-amber-300 pl-2' />
            <p className='text-black bg-gray-50 lg:text-center sm:text-left lg: w-1/2 sm:w-full'>
@@ -70,7 +76,7 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         </section>
       </div>
       <section className='flex flex-col snap-center' id='section-1'>
-        <div className='sm:flex lg:grid justify-right content-end bg-blend-luminosity bg-my_bg_image'>
+        <div className='sm:flex lg:grid lg:grid-cols-3 justify-right content-end bg-yellow-300'>
           <p className='text-black'>Famous Recipe is a Canadian and Caribbean styled restaurant. Offering unique cuisines, customer service and just real good food. We are happy to announce that we are online and ready to take your orders!</p>
           <Image src={famous} alt='landingimage' className='lg:float-right p-3 sm:justify-left' width={100}  height={40}/>
           <div className='flex flex-2'> <ScrollLink href="#section-photo" className="text-black">

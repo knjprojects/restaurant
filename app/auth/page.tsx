@@ -1,122 +1,84 @@
-"use client";
-import { FormEvent, useEffect, useRef,useState } from 'react';
-import {useForm} from "react-hook-form"
-import { db,auth as myAuth,storage } from '../../utils/firebase';
-import { signOut} from 'firebase/auth';
-import { useAuthState,useIdToken,useCreateUserWithEmailAndPassword,useSignInWithEmailAndPassword,useSignInWithFacebook } from 'react-firebase-hooks/auth';
+'use client';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
+export default function MyModal() {
+  let [isOpen, setIsOpen] = useState(true)
 
-import { useCountdown} from "react-countdown-circle-timer"
+  function closeModal() {
+    setIsOpen(false)
+  }
 
-import {useRouter} from 'next/navigation';
-const Auth = () => {
-	const {
-  path,
-  pathLength,
-  stroke,
-  strokeDashoffset,
-  remainingTime,
-  elapsedTime,
-  size,
-  strokeWidth,
-} = useCountdown({ isPlaying: true, duration: 7, colors: '#abc' })
-	useEffect(() => {
-		
-	 },[])
-	const { register, handleSubmit } = useForm();
+  function openModal() {
+    setIsOpen(true)
+  }
 
+  return (
+    <>
+      <div className="fixed inset-0 flex items-center justify-center">
+        <button
+          type="button"
+          onClick={openModal}
+          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          Open dialog
+        </button>
+      </div>
 
-	const userName = useRef("")
-	const pass=useRef("")
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Payment successful
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      Your payment has been successfully submitted. We’ve sent
+                      you an email with all of the details of your order.
+                    </p>
+                  </div>
 
-	//let fireAuth:any={}
-	//import {useRouter} from 'next/navigation';
-	const route = useRouter();
-	
-	const [auth, setAuth] = useState<'signup' | 'signin'>('signin');
-	const [email, setEmail] = useState<string>('');
-	const [password, setPassword] = useState<string>('');
-	const [invalid, setInvalid] = useState<boolean>(false);
-    
-
-	//const { isLoading, user, error } = useAuthStore();
-	const [ userCred, isLoading, errorMessage ] = useAuthState(myAuth);
-	/*useEffect(()=>{
-		if(userCred!=null){
-			route.push('/home');
-		}
-	},[
-		userCred
-	])*/
-	const toggleAuth = (state: 'signup' | 'signin') => {
-		setAuth(state);
-	};
-	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		if (!password.length || !email.length) {
-			setInvalid(true);
-		}
-		setInvalid(false);
-		if (auth === 'signup' && !invalid) 
-			{
-				
-				//signUp({email,password})
-			}
-			
-		else if(auth=='signin' && !invalid){//email and password detected as one prop, because of my {}:any
-		//	signIn({email,password})
-		}
-	};
-	return (
-		<main className='container form-signin text-center mt-4'>
-			<form className='m-auto w-50' onSubmit={onSubmit}>
-				<img className='mb-4' src='https://media.graphassets.com/BldVa3tyRDy2QkoyQq9R' alt='' width='72' height='57' />
-				<h1 className='h3 mb-3 fw-normal text-start'>{auth == 'signup' ? 'Sign up' : 'Sign in'}</h1>
-				{errorMessage && <div className='alert alert-danger'>{errorMessage?.message}</div>}
-				<div className='form-floating'>
-					<input
-						type='email'
-						onChange={e => (userName.current=e.target.value)}//setEmail(e.target.value)}
-						value={email}
-						className={`form-control ${invalid && 'is-invalid'} text-black`}
-						id='floatingInput'
-						placeholder='name@example.com'
-					/>
-					<label htmlFor='floatingInput'>Email address</label>
-				</div>
-
-				<div className='form-floating mt-2'>
-					<input
-						type='password'
-						onChange={e => (pass.current=e.target.value)}//setPassword(e.target.value)}
-						value={password}
-						className={`form-control ${invalid && 'is-invalid'} text-black`}
-						id='floatingPassword'
-						placeholder='Password'
-					/>
-					<label htmlFor='floatingPassword'>Password</label>
-				</div>
-
-				<button className='w-100 btn btn-lg mt-2 btn-primary' disabled={isLoading} type='submit'>
-					{isLoading ? 'Loading...' : auth === 'signup' ? 'Sign Up' : 'Sign In'}
-				</button>
-
-				<p className='mt-2 fw-bold'>
-					{auth === 'signup' ? 'Already have account' : 'Not account yet'}{' '}
-					{auth == 'signup' ? (
-						<span className='fw-normal text-primary pointer' onClick={() => toggleAuth('signin')} style={{ cursor: 'pointer' }}>
-							Sign in
-						</span>
-					) : (
-						<span className='fw-normal text-primary pointer' onClick={() => toggleAuth('signup')} style={{ cursor: 'pointer' }}>
-							Sign up now
-						</span>
-					)}
-				</p>
-			</form>
-		</main>
-	);
-};
-
-export default Auth;
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+    </>
+  )
+}
