@@ -4,20 +4,21 @@ module.exports = {
   env:{
     NEXT_PUBLIC_SANITY_PROJECT_ID: "okxmnsmd",
     NEXT_PUBLIC_SANITY_DATASET: "production",
-    NEXT_PUBLIC_FIREBASE_API_KEY:'AIzaSyCTJMHJXvrHXqz7vDi6liqN9Ro0suuszs4',
+    NEXT_PUBLIC_FIREBASE_API_KEY: 'AIzaSyCTJMHJXvrHXqz7vDi6liqN9Ro0suuszs4',
+    NEXT_PUBLIC_SANITY_API_VERSION:'2023-06-19',
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:'famousrecipe-44035.firebaseapp.com',
     NEXT_PUBLIC_FIREBASE_PROJECT_ID:'famousrecipe-44035',
     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET:'famousrecipe-44035.appspot.com',
     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:'523349287196',
     NEXT_PUBLIC_FIREBASE_APP_ID:'1:523349287196:web:b020ffa3ac34f5cd5adad9',
     NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID:'G-JJ4CP5BPS4',
-
+    NEXT_PUBLIC_MAP_API_KEY:'AIzaSyAjz4GHb3CrChQ-AQcIXkK7QIO6wZ5_8LU',
 
 
     wixAccessToken:'',},
 
 
-  images: {
+  images: {//cdn.sanity.io
     remotePatterns: [
       {
         protocol: 'https',
@@ -26,7 +27,7 @@ module.exports = {
         pathname: '/**',
       },
     ],
-    /*domains: [
+    domains: [
     'cdn.sanity.io','assets.vercel.com','images.pexels.com','fakestoreapi.com','press.aboutamazon.com',
     "firebasestorage.googleapis.com",
     "platform-lookaside.fbsbx.com",
@@ -35,7 +36,7 @@ module.exports = {
 
     ],
   formats: ['image/avif', 'image/webp'],
-  },*/
+  
   },
 swcMinify: true,
 reactStrictMode: true,

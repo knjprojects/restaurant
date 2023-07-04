@@ -21,6 +21,12 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+      /*validation: (Rule) =>
+        Rule.custom(async (value, context) => {
+          /*const isUnique = await isUniqueColour(value, context);
+          if (!isUnique) return 'Colour is not unique';
+          return true;
+        }),*/
     }),
     defineField({
       name: 'image',
@@ -58,16 +64,16 @@ export default defineType({
    
   ],
 
-  preview: {
+  /*preview: {
     select: {
       title: 'name',
       author: 'author.name',
       media: 'image',
     },
-    prepare(selection) {
+    /*prepare(selection) {
       const {author} = selection
       return {...selection, subtitle: author && `by ${author}`}
     },
-  },
+  }*/
 })
 /* */

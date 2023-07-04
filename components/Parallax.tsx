@@ -1,3 +1,4 @@
+'use client'
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -113,7 +114,7 @@ function Parallax() {
     }, []);
 
     return (
-        <div className="parallax-outer">
+       /* { <div className="parallax-outer">
             <div ref={parallaxRef} style={{ background: `linear-gradient(#0F2B9C, #673D7D ${background}%, #A74A67, #EDFC54 )` }} className='parallax'>
                 <img ref={mountain3} className='mountain-3' src="/img/famous.png" />
                 <img ref={mountain2} className='mountain-2' src="/parallax/mountain-2.svg" />
@@ -128,8 +129,16 @@ function Parallax() {
                     <span ref={btn}>Discover more</span>
                 </div>
             </div>
-        </div>
+        </div> 
+        
+        )*/
+        <div className="min-h-screen bg-fixed bg-center bg-no-repeat bg-cover bg-roti">
+            <div className="flex h-40 w-full/2 bg-black rounded-md">
+                <p>Yoooo</p>
+            </div>
+      </div>
     )
+
 }
 
 export default Parallax

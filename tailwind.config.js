@@ -8,17 +8,25 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     "./node_modules/flowbite/**/*.js"
   ],
+  variants: {
+    extend: {
+        display: ["group-hover"],
+    },
+},
   theme: {
+    
     extend: {
       fontFamily:{
         Poppins: ["Poppins", "sans-serif"],
         merienda: ["Merienda",...defaultTheme.fontFamily.sans]
       },
-       backgroundImage: {
+      backgroundImage: {
+         
          'my_bg_image': "url('/assets/img/bake.png')",
          'tele': "url('/assets/img/telephone.png')",
          'yellla': "url('/assets/img/yella.png')",
-         'famous': "url('/assets/img/famous.jpeg')"
+        'famous': "url('/assets/famous.png')",
+         'roti': "url('/assets/img/food/dhalpourie.png')"
       }
 
     },

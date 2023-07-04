@@ -2,13 +2,17 @@ import { createClient, groq } from "next-sanity";
 import { Dish } from "../typings";
 import {apiVersion, dataset, projectId} from './env'
 
-const config=({
+const config={
   projectId: projectId,
-  dataset:dataset || "production",
-  //apiVersion:"2022-10-16",
-  //useCdn:false,
+  dataset: dataset,
+  
+  apiVersion: apiVersion,
+  useCdn: true,
+   /*perspective: 'published',
+    studioUrl: '/studio',
+    logger: console,*/
   //token:process.env.sanityToken
-})
+}
 export const imgClient=createClient(config)
 /*export async function getProjects(): Promise<Project[]> {
   return createClient(config).fetch(
@@ -39,29 +43,35 @@ export async function getProject(slug: string): Promise<Project> {
   )
 }
 */
-export async function getDishes(): Promise<Dish[]> {
-  return createClient(config).fetch(// chef->{name},
+export async function getDishes(): Promise<any> {
+  return await createClient(config).fetch(// chef->{name},
     groq`*[_type == "dish"]{
      
-     _createdAt,
+  
       price,
       name,
-      "slug": slug.current,
-      "image": image.asset->url,
-      description,categories:categories[]->title
+    
+      description,
+       "slug":slug.current,
+       "image":image.asset->url,
+      "cat":cat->catName
     }`
+
   )
 }
+/*"cat" : cat->catName
+      "slug": slug.current,
+      "image": image.asset->url, */
 
 export async function getDish(slug: string): Promise<Dish> {
-  return createClient(config).fetch(
+  return await createClient(config).fetch(
     groq`*[_type == "dish" && slug.current == $slug][0]{
-      _createdAt,
+     
       price,
       name,
       "slug": slug.current,
       "image": image.asset->url,
-      description,categories: categories[]->title
+      description, "cat": cat->catName
    
     }`,
     { slug }

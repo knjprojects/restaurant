@@ -9,12 +9,11 @@ export type MyUser = {
 }
 //same as sanity item/dish data schema
 export type Dish = {
-    _createdAt: DateTimeInputProps
     price:number
     name: string
     slug:string
     image: string
-    categories: []
+    cat: string
     description:string
 
 }

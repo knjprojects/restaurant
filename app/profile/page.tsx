@@ -7,16 +7,16 @@ import { Form } from 'react-hook-form';
 //firebase
 import { useCollection,useDocument } from 'react-firebase-hooks/firestore';
 import { doc,collection } from 'firebase/firestore';
-import { db } from '../../../utils/firebase';
+import { db } from '../../utils/firebase';
 //shimmer
 import { TextBlock,MediaBlock, TextRow,RectShape,RoundShape } from 'react-placeholder/lib/placeholders';
 import ReactPlaceholder from 'react-placeholder';
 
 import Lottie from "lottie-react";
-import animationData from "../../../public/assets/lottie/profile.json";
-import { MyUser } from '../../../typings';
+import animationData from "../../public/assets/lottie/profile.json";
+import { MyUser } from '../../typings';
 import { Tab } from '@headlessui/react';
-import UploadImageToStorage from '../../../components/Upload';
+import UploadImageToStorage from '../../components/Upload';
   type Props = {}
 const Profile = (props: Props) => {
 

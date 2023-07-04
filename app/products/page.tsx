@@ -18,7 +18,6 @@ import { Carousel } from 'flowbite-react'
 //import ParallaxScroll from './WritingParallax'
 import { useTheme } from "next-themes";
 
-import { Suspense } from 'react'
 
 import ScrollLink from '../../components/ScrollLink';
 import { Dish } from '../../typings';
@@ -39,10 +38,16 @@ import { Dish } from '../../typings';
       });
     };
 
-const Products = async ({ mySanityData }: any) => {
-  const [dishes, setDishes]:any = useState([]);
-  await getDishes().then((data) => { setDishes(data)});
-  
+const Products = async () => {
+ const [data, setData]: any = useState([]);
+  useEffect(() => { 
+    getDishes().then((data: Dish[]) => { 
+    console.log(data)
+    setData((data))
+    return data;
+    
+  });
+  },[])
 
 
   
@@ -71,25 +76,16 @@ const Products = async ({ mySanityData }: any) => {
 
 
   return (
-    <div className='bg-white h-screen top-0 sticky'>
-      {
-        dishes && <p>we have dishes data</p>
-      }
-        <p> We are testing todos(drag and drop) right now</p>
-       <p>or maybe testing upstash n zustand state management but first lets test our sanity database n then test some react gui components
-       </p>
-       <Link href={`/products/product?name=potato`}> 
-    <button>Potato</button>
-      </Link>
-      <section>
-      
-      </section>
-        <div className='sm:w-32 bg-red-300 h-20 m-3 rounded-md hover:scale-110 hover:w-52 animate-pulse hover:h-96 flex-col'>
-            <ScrollLink href='#section-2'>Lik</ScrollLink>
-        </div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"> <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+          Get started by editing
+          <code className="font-mono font-bold">app/page.tsx</code>
+        </p></div>
      
-   
-    </div>
+      <div className='bg-gradient-to-br from-yellow-300 to-black flex'>
+        <p className='text-white'>yoo</p>
+      </div>
+ </main>
   )
 }
   

@@ -1,9 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*Open the settings, search for “unknown”, the first result should be the one you’re looking for: CSS > Lint: Unknown At Rules:
-*/
 @layer components{
   .view{
     @apply align-middle text-center 
@@ -155,9 +152,6 @@
   
 }
 
-@layer base{
-  
-}
 
 html,
 body {

@@ -10,9 +10,18 @@ const SearchComponent = () => {
     setAddress(selectedAddress);
     setPlaceId(selectedPlaceId);
   };
-
+//ChIJSSO3fYKbLIgRBsXDLcNeae0
+//158 King St W, Hamilton, ON L8P 1A5, Canada
   return (
-    <div>
+    <html>
+             <head>
+   <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjz4GHb3CrChQ-AQcIXkK7QIO6wZ5_8LU&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+      </head>
+      <body>
+        <div>
       <h2>Search for a Business:</h2>
       <PlacesAutocomplete
         value={address}
@@ -34,6 +43,9 @@ const SearchComponent = () => {
       </PlacesAutocomplete>
       {placeId && <p>Selected Place ID: {placeId}</p>}
     </div>
+      </body>
+      </html>
+   
   );
 };
 

@@ -1,9 +1,10 @@
 import {defineField, defineType} from 'sanity'
-
+import { MdCategory } from 'react-icons/md'
 export default defineType({
   name: 'cat',
   title: 'Category',
   type: 'document',
+  icon:MdCategory,
   fields: [
     defineField({
       name: 'catName',

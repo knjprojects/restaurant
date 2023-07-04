@@ -1,10 +1,15 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+var map;
+var service;
+var infowindow;
+
 
 export default function Document() {
+  
   return (
     <Html lang="en">
       <Head>
-        
+ 
         
         <style>
           { /*add scrits and fonts here */}

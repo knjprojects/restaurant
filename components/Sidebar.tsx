@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { AiOutlineHome,AiFillShopping } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
@@ -7,7 +8,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight,MdShoppingBasket,MdDashboard 
 import Link from "next/link";
 import { Tab } from "@headlessui/react";
 import { useContext, useState } from "react";
-import logo from '../public/assets/img/famous.jpeg'
+import logo from '../public/assets/img/famous.png'
 import { useRouter, useSearchParams,usePathname } from "next/navigation";
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
@@ -18,8 +19,9 @@ const sidebarItems = [
     name: "Home",
     href: "/",
     icon: AiOutlineHome,
-  },
-  /*{
+  }
+  /*,
+  {
     name: 'dashboard',
     href: '/dashboard',
     icon: MdDashboard
@@ -85,35 +87,36 @@ const Sidebar = () => {
     ],
   })
   const router = useRouter();
-  const params = useSearchParams();
+  //const params = useSearchParams();
   const search = usePathname();// params.get('page')
 
   const tab = useTabStore();
   const[isCollapsed,setCollapse]=useState(tab.isCollapsed)
  
-  
-  return (
-    <div className="relative bg-yellow-300">
-      <button className="btn" onClick={()=>{setCollapse(!isCollapsed)}}>
-        {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
-      </button>
-      <aside className="" data-collapse={isCollapsed}>
-        <div className="sidebar__top">
-          <Image
+  /**    {/*<aside className="" data-collapse={isCollapsed}>
+        {/*<div className="fixed top-0">
+          {<Image
             width={80}
             height={80}
             className="sidebar__logo"
             src={logo}
             alt="logo"
           />
-          <p className="sidebar__logo-name">Famous Recipe</p>
+  }
+          <p className="bg-famous">Famous Recipe</p>
         </div>
-        <ul className="sidebar__list">
+*
+     */
+  return (
+    <div className="z-20 rounded-lg bg-gradient-to-br from-yellow-300 to-yellow-300 flex fixed left-0 pt-20 justify-center h-full">
+     
+      
+        <ul className="sidebar__list rounded-md">
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
-              <li className="sidebar__item" key={name}>
+              <li className="sidebar__item hover:animate-bounce bg-yellow-200/2 mt-10" key={name}>
                 <Link
-                  className={`sidebar__link ${
+                  className={` bg-yellow-300 hover:bg-yellow-400 active:bg-red-400 text-black font-bold py-2 px-4 rounded-full transition-colors duration-300 animate-pulse sidebar__link ${
                     search === href ? "sidebar__link--active" : ""
                   }`}
                   href={href}
@@ -121,14 +124,14 @@ const Sidebar = () => {
                   <span className="sidebar__icon">
                     <Icon />
                   </span>
-                  <span className="sidebar__name">{name}</span>
+                  <span className="ml-2 hidden sm:inline">{name}</span>
                 </Link>
               </li>
             );
           })}
         </ul>
    
-      </aside>
+    { /*</aside>*/}
     </div>
   );
 };
