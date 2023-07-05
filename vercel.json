@@ -6,5 +6,5 @@
     { "src": "/(.*)", "dest": "/index.js" }
   ],
   "framework": "nextjs",
-  "buildCommand": "yarn && next build"
+  "buildCommand": "next build"
 }
