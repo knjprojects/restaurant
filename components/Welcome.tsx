@@ -10,10 +10,10 @@ const Welcome = (props: Props) => {
   return (
     <div className='bg-yellow-300 min-w-screen justify-items-stretch pt-6 rounded-lg mb-4'>
       <div className='flex sm:flex-row flex-col-reverse bg-yellow-300 h-full'>
-        <div className='sticky top-12 space-x-2 flex flex-col py-2 ml-28'>
+        <div className='sticky top-10 space-x-2 flex flex-col py-2 ml-28'>
           <p className='text-black font-semibold justify-left font-merienda my-3 z-20'>Welcome to famous Recipe
           </p>
-          <div className='flex flex-row left-0 justify-stretch space-x-3 mt-2'>
+          <div className='flex flex-row left-0 justify-stretch space-x-3 sm:mt-2'>
             <p className=' font-semibold text-red-500'>We Serve:
             </p>
             <Typewriter words={words}  

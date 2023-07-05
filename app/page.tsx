@@ -56,7 +56,8 @@ export default function Home() {
          <Welcome />
         
       </div>
-       <Intro />
+      <div className='pl-28 sm:pl-24 pr-16 flex flex-col'>
+         <Intro />
       <div className='mt-16'>
                 <Fade cascade>
          
@@ -67,7 +68,7 @@ export default function Home() {
        
     
         </Fade>
-         <section className='flex flex-col snap-center pl-28' id='section-1'>
+         <section className='flex flex-col snap-center' id='section-1'>
           
             <Parallax />
             <ReviewsComponent />
@@ -87,6 +88,8 @@ export default function Home() {
 
 
 </div>
+      </div>
+      
     
 
       <div className="px-20 bg-yellow-300 fixed bottom-0 left-0 right-0 py-2 z-10 w-200" id="logo">

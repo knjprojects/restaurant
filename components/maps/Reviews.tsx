@@ -78,9 +78,10 @@ const ReviewsComponent = ({ place }: any) => {
 
     return (
       <div className="bg-yellow-300 py-10">
-        <Minimap searchParams={'Famous Recipe'} />
         <h1 className='font-bold text-black text-center justify-center'>Reviews</h1>
+        
         <div className="max-w-3xl mx-auto">
+          <Minimap searchParams={'Famous Recipe'} />
           <div className="relative">
             <div className="absolute left-0 bottom-10 transform -translate-y-1/2">
               <button
