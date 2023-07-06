@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-//import { Provider } from 'react-redux'
 import { ThemeProvider } from "next-themes"; 
 
 const Providers = ({children}:{children:React.ReactNode}) => {

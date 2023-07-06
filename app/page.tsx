@@ -29,74 +29,43 @@ import Extras from '../components/Extras'
 import { Fade ,Slide} from 'react-awesome-reveal'
 import Welcome from '../components/Welcome'
 import Sidebar from '../components/Sidebar'
+import Upload from 'antd/es/upload/Upload'
+import UploadImageToStorage from '../components/Upload'
+import Widgets from '../components/Widgets'
 export default function Home() {
   const words = ["Welcome", "to", "famous", "recipe"];
-  useEffect(() => {
-    /*const handleScroll = () => {
-      const logo = document.getElementById('logo');
-      if (logo) {
-        const scrollPosition = window.scrollY;
-        logo.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-      }
-    };
-     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);*/
-  },[])
-  return (
   
-      
-       
-     
-      
-     
- //flex flex-col items-center justify-between bg-yellow-300 min-h-screen flex-1 snap-y overflow-scroll px-24
-    <main className="min-h-screen min-w-screen sm:pt-4 pt-2 bg-yellow-300">
-      <Sidebar />
-      <div className="fixed top-0 z-10 w-full grow" id="logo">
-         <Welcome />
-        
-      </div>
-      <div className='pl-28 sm:pl-24 pr-16 flex flex-col'>
-         <Intro />
-      <div className='mt-16'>
-                <Fade cascade>
+  return (
+  <main className="min-h-screen min-w-screen sm:pt-4 pt-2 bg-yellow-300">
+      <div className='relative top-0'>{ /**everything */}
+        <Sidebar />
+        <Welcome />
+        <Widgets />
+        <div className='sm:pl-24 pt-14 sm:pt-4 overflow-x-scroll'>
+        <div className='flex flex-col'>
+        <Intro />
+        <div className='mt-16'>
          
-         
-          <footer><div className="fixed bottom-0 left-0 flex h-32 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          yoooo
-        </div></footer>
-       
-    
-        </Fade>
-         <section className='flex flex-col snap-center' id='section-1'>
-          
-            <Parallax />
+          <section className='flex flex-col snap-center' id='section-1'>
+           <Fade cascade>
+              <Parallax />
             <ReviewsComponent />
-        </section>
-        
-     
+            <UploadImageToStorage />
+          </Fade>
+          </section>
+        </div>
+        <div className="z-10 max-w-5xl items-center justify-between font-mono text-sm flex flex-col p-24">
+          <Extras/>
+        </div>
+        <div className='bg-famous z-10 flex flex-col lg:static lg:w-auto px-18 items-center justify-between'>
+        </div>
+      </div>
+      <div className="px-20 bg-yellow-300 fixed bottom-0 left-0 right-0 py-2 z-10 w-200" id="logo">
+      </div>
         </div>
       
-      
-      <div className="z-10 max-w-5xl items-center justify-between font-mono text-sm flex flex-col p-24">
-        
-         <Extras/>
-      
-      
-      </div>
-      <div className='bg-famous z-10 flex flex-col lg:static lg:w-auto px-18 items-center justify-between'>
-
-
-</div>
-      </div>
-      
-    
-
-      <div className="px-20 bg-yellow-300 fixed bottom-0 left-0 right-0 py-2 z-10 w-200" id="logo">
-
-      </div>
-    </main>
-   
+    </div>
+  </main>
   )
 }
 

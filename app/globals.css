@@ -16,9 +16,8 @@
     .inspect{
         @apply hover:scale-95
     }
-    .enlarge{
-        @apply hover:scale-105
-    }
+ 
+
     .highlight{
         @apply inspect hover:text-blue-400 hover:bg-white hover:shadow-xl shadow-blue-300
     }
@@ -27,125 +26,6 @@
         @apply justify-center h-5 group-hover:text-blue-400 text-center
      text-gray-500 md:h-5
     }
-    .catBackground{
-        @apply bg-[image:var(--image-url)]
-    }
-    .headerMiddleTab{
-        @apply flex space-x-4 rounded-full 
-    }
-    .headerleft{
-        @apply sm:space-x-7 flex items-center md:px-2
-    }
-    .headerright{
-        @apply 
-    }
-    .sidebarfb{
-        @apply mt-5 max-w-[500px] xl:min-w-[300px] xl:w-5 flex-shrink px-2 text-center items-center
-    }
-
-    .sidebarwidgetimage{
-        @apply 
-        text-center  flex flex-col md:flex-row my-3 bg-gray-100 rounded-full cursor-pointer enlarge shadow-lg shadow-blue-900 items-center
-    }
-    .sidebarwidgettext{
-     @apply ml-2 text-center hidden text-sm font-semibold md:inline-flex lg:ml-4 flex-shrink
-    }
-    .sidebarwidgeticon{
-        @apply text-center flex-col md:w-20 w-12 h-10 sm:w-24 sm:h-12
-    }
-    .welcome{
-    @apply h-screen bg-cover
-    }
-    .extra{
-        @apply focus:outline-none focus:ring focus:ring-violet-300
-    }
-    .topLinks{
-        @apply sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20
-    }
-    .anime{
-        @apply  transition duration-200 transform ease-in
-    }
-    .storycard{
-        @apply relative h-14 w-14 md:h-20 md:w-20 lg:h-56 lg:w-32 cursor-pointer overflow-x-auto p-3
-        anime
-    }
-    .firstSection{
-        @apply flex flex-grow h-screen pb-44 pt-6 mr-4 xl:mr-40 overflow-y-auto
-    }
-    .font-loader {
-      @apply font-family: 'Chilanka';
-}
-.imgContainer{
-  @apply h-full w-full relative bg-gradient-to-b from-yellow-50 to-blue-300
-}
-.navHeaderRest{
-  @apply h-full w-full p-2 flex sticky top-0 z-0 items-center text-center
-}
-.navHeaderItem{
-  @apply flex items-center
-}
-.popOver{
-  @apply text-gray-800 hover:text-blue-600
-}
-  .popOverButton{
-    @apply inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75
-  }
-  .popOverIcon{
-    @apply ml-2 h-5 w-5 text-orange-300 transition duration-100 ease-in-out group-hover:text-opacity-80
-  }
-  .layout {
-    @apply flex h-screen relative gap-8;
-  }
-  
-  .sidebar__wrapper {
-    @apply relative;
-  }
-  
-  .sidebar {
-    @apply bg-slate-100 sidebarfb p-4 transition-all duration-500 ease-in-out overflow-hidden;
-  }
-  
-  .sidebar__top {
-    @apply flex items-center gap-4 pb-4 mb-4 border-b border-blue-300;
-  }
-  
-  .sidebar__logo {
-    @apply w-14 h-14 object-contain rounded-md;
-  }
-  
-  .sidebar__logo-name {
-    @apply text-lg font-semibold;
-  }
-  
-  .sidebar__list {
-    @apply list-none;
-  }
-  
-  .sidebar__link {
-    @apply inline-block text-base no-underline text-black px-4 py-2 bg-red-400 mb-4 rounded-md;
-  }
-  
-  .sidebar__link--active {
-    @apply text-black font-bold bg-yellow-200;
-  }
-  
-  .sidebar__icon {
-    @apply inline-block text-lg;
-  }
-  
-  .sidebar__name {
-    @apply ml-2;
-  }
-  
-  [data-collapse="true"] {
-    @apply w-14;
-  }
-  
-  [data-collapse="true"] .sidebar__name,
-  [data-collapse="true"] .sidebar__logo-name {
-    @apply hidden;
-  }
-  
   .btn {
     @apply absolute top-14 right-0 border-none bg-gray-400 w-4 h-4 border-green-400 rounded-full flex justify-center items-center cursor-pointer -translate-x-1/2 text-lg;
   }

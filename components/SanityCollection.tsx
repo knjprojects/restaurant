@@ -35,7 +35,7 @@ const SanityCollection = () => {
     
   return (
     <div>
-        <div className='sm:flex sm:flex-col sm:space-y-2 lg:grid lg:space-x-4 text-center content-center place-content-center'>
+        <div className='sm:flex sm:space-y-2 lg:grid lg:space-x-4 text-center content-center place-content-center'>
             <p className='font-semibold text-black'>We have a wide variety of cuisines doubles and pholourie to bbq, beef patties, bbq, fry rice, goat. </p>
 
           </div>

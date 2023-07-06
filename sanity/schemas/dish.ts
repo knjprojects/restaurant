@@ -13,6 +13,11 @@ export default defineType({
       title: 'Dish Name',
       type: 'string',
     }),
+     defineField({
+      name: 'type',
+      title: 'Dish Type(Meat or Veggie)',
+      type: 'string',
+    }),
     defineField({
       name: 'slug',
       title: 'DishID',

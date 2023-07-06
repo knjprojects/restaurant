@@ -1,9 +1,26 @@
-import { Button, Card, Input, List, message, Image, Progress } from 'antd'
+//import { Button, Card, Input, List, message, Image, Progress } from 'antd'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import React, { useState } from 'react'
 import { storage } from '../utils/firebase'
+import { ToastContainer,toast } from 'react-toastify'
+import Toast from './Toast'
+import'react-toastify/dist/ReactToastify.css';
+import { Form,useForm } from 'react-hook-form'
+import Input from 'antd/es/input/Input'
 
 const UploadImageToStorage = () => {
+   const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      example: "",
+      exampleRequired: ""
+    }
+  });
+
   const [imageFile, setImageFile] = useState<File>()
   const [downloadURL, setDownloadURL] = useState('')
   const [isUploading, setIsUploading] = useState(false)
@@ -21,7 +38,7 @@ const UploadImageToStorage = () => {
 
       console.log(files[0])
     } else {
-      message.error('File size to large')
+      Toast('success','ayy','random')
     }
   }
 
@@ -49,7 +66,7 @@ const UploadImageToStorage = () => {
           }
         },
         (error) => {
-          message.error(error.message)
+          Toast('success',error.message,'random')
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -61,14 +78,16 @@ const UploadImageToStorage = () => {
         },
       )
     } else {
-      message.error('File not found')
+      Toast('success','file not found','random')
+     // message.error('File not found')
     }
   }
 
   const handleRemoveFile = () => setImageFile(undefined)
 
   return (
-    <div className="mt-5 bg-gray-300 text-white">
+    <div className="toast-container"><ToastContainer limit={2} />
+      <div className="mt-5 bg-gray-300 text-white">
       <p className='text-white font-bold'>yo</p>
       <div className="col-lg-8 offset-lg-2">
         <Input
@@ -78,16 +97,18 @@ const UploadImageToStorage = () => {
           onChange={(files:any) => handleSelectedFile(files.target.files)}
         />
 
-        <div className="mt-5">
-          <Card>
+          <div className="mt-5">
+            {/*}
+          <div>
             {imageFile && (
-              <>
+                <>
+                  <div cla></div>
                 <List.Item
                   extra={[
-                    <Button
+                    <button
                       key="btnRemoveFile"
                       onClick={handleRemoveFile}
-                      type="text"
+                      l="text"
                       icon={<i className="fas fa-times"></i>}
                     />,
                   ]}
@@ -123,10 +144,14 @@ const UploadImageToStorage = () => {
               </>
             )}
             <p></p>
-          </Card>
-        </div>
+            </div>
+            */}
+          </div>
+            
       </div>
     </div>
+    </div>
+    
   )
 }
 

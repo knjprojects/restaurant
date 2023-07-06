@@ -11,7 +11,7 @@ import loading from '../public/assets/lottie/fire_pan.json'
   export default function Loading() {{
   return (
 
-       <div className="flex flex-col w-full justify-center items-center">
+       <div className="flex flex-col w-full justify-center items-center h-full">
       <Lottie
         animationData={animationData}
         className="flex justify-center items-center"

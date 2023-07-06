@@ -9,6 +9,7 @@ export type MyUser = {
 }
 //same as sanity item/dish data schema
 export type Dish = {
+    type:string
     price:number
     name: string
     slug:string

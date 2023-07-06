@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import AnimatedDropdown from "../../components/Dropdown";
 import React,{useEffect, useState} from 'react'
-import { imgClient } from '../../sanity/sanity_utils';
+
 
 import { Disclosure } from '@headlessui/react';
 import { useAuthState } from 'react-firebase-hooks/auth';

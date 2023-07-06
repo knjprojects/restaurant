@@ -20,9 +20,9 @@ const sidebarItems = [
     href: "/",
     icon: AiOutlineHome,
   }
-  /*,
+  ,
   {
-    name: 'dashboard',
+    name: 'Dash',
     href: '/dashboard',
     icon: MdDashboard
   },
@@ -30,7 +30,7 @@ const sidebarItems = [
     name: "Dishes",
     href: '/products',
     icon: AiFillShopping
-  }*/
+  }
 
 ];
 import { useTabStore } from "../zustand/sidebar.store";
@@ -108,23 +108,23 @@ const Sidebar = () => {
 *
      */
   return (
-    <div className="z-20 rounded-lg bg-gradient-to-br from-yellow-300 to-yellow-300 flex fixed left-0 pt-20 justify-center h-full">
+    <div className="fixed flex left-0 bottom-0 rounded-sm bg-gradient-to-r from-red-600 to-yellow-300 sm:w-16 z-20 w-full sm:h-full h-16 sm:flex-grow">
      
       
-        <ul className="sidebar__list rounded-md">
+        <ul className="rounded-md flex flex-row flex-grow w-full sm:flex-col justify-around">
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
-              <li className="sidebar__item hover:animate-bounce bg-yellow-200/2 mt-10" key={name}>
+              <li className="hover:animate-bounce bg-yellow-200/2 px-1" key={name}>
                 <Link
-                  className={` bg-yellow-300 hover:bg-yellow-400 active:bg-red-400 text-black font-bold py-2 px-4 rounded-full transition-colors duration-300 animate-pulse sidebar__link ${
-                    search === href ? "sidebar__link--active" : ""
+                  className={`sm:text-center flex sm:flex-col hover:bg-yellow-400 active:bg-red-400 text-black font-bold rounded-full transition-colors duration-300 animate-pulse ${
+                    search === href ? "sidebar__link--active animate-pulse" : ""
                   }`}
                   href={href}
-                >
-                  <span className="sidebar__icon">
-                    <Icon />
-                  </span>
-                  <span className="ml-2 hidden sm:inline">{name}</span>
+                > 
+                  
+                    <Icon className="justify-center items-center" />
+                  <p className="text-center hidden sm:inline sm:text-md text-sm sm:w-16">{name}</p>
+                 
                 </Link>
               </li>
             );
