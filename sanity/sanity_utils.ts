@@ -5,7 +5,7 @@ const config={
   projectId: projectId,
   dataset: 'production',
   apiVersion: '2023-06-19',
-  useCdn: true,
+  useCdn: false,
 }
 export async function getDishes(): Promise<Dish[]> {
   return await createClient(config).fetch(// chef->{name},
@@ -14,7 +14,8 @@ export async function getDishes(): Promise<Dish[]> {
       "slug":slug.current,
       "image":image.asset->url,
       "cat":cat->catName
-    }`
+    }`,
+    
   )
 }
 export async function getDish(slug: string): Promise<Dish> {

@@ -19,7 +19,7 @@ useEffect(() => {
     let words = ['curry', 'stew', 'roti', 'choka']
     //other props-typeSpeed, deleteSpeed, delaySpeed, loop, cursor, cursorStyle, onLoppDone, onDelay, onDelete, cursorBlinking
   return (
-    <div className='bg-yellow-300 min-w-screen justify-items-stretch pt-6 rounded-lg mb-4 fixed top-0 z-10 w-full'>
+    <div className='bg-yellow-300 min-w-screen justify-items-stretch pt-6 rounded-lg fixed top-0 z-10 w-full'>
       <div className='flex sm:flex-row flex-col-reverse bg-yellow-300 h-full'>
         <div className='space-x-2 flex flex-col py-2 px-24'>
           <p className='text-black font-semibold justify-left font-merienda my-3'>Welcome to famous Recipe
@@ -44,7 +44,7 @@ useEffect(() => {
     
     
        
-         <Image src={famous} alt="Logo" className="h-18 sm:w-1/4 md:h-20 mr-2 w-36  md:float-right lg:pb-52 justify-center sm:ml-28 ml-28" id='logo'/>
+         <Image src={famous} alt="Logo" className="h-18 sm:w-1/4 mr-2 w-36  md:float-right lg:pb-52 justify-center sm:ml-28 ml-28" id='logo'/>
       
       </div>
       
