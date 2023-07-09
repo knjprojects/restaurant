@@ -4,9 +4,9 @@ import Sidebar from "./Sidebar";
 const BaseLayout = ({ children }:{ children: React.ReactNode}) => {
   return (
     
-      <div className="w-full h-full bg-yellow-300 relative">
+      <div className="w-full h-full themed relative">
       
-        
+               <Sidebar />
               {children}
           
     

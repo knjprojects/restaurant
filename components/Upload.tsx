@@ -1,4 +1,5 @@
 //import { Button, Card, Input, List, message, Image, Progress } from 'antd'
+'use client'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 import React, { useState } from 'react'
 import { storage } from '../utils/firebase'
@@ -7,7 +8,7 @@ import Toast from './Toast'
 import'react-toastify/dist/ReactToastify.css';
 import { Form,useForm } from 'react-hook-form'
 import Input from 'antd/es/input/Input'
-
+import Image from 'next/image'
 const UploadImageToStorage = () => {
    const {
     register,
@@ -98,54 +99,42 @@ const UploadImageToStorage = () => {
         />
 
           <div className="mt-5">
-            {/*}
-          <div>
-            {imageFile && (
-                <>
-                  <div cla></div>
-                <List.Item
-                  extra={[
-                    <button
-                      key="btnRemoveFile"
-                      onClick={handleRemoveFile}
-                      l="text"
-                      icon={<i className="fas fa-times"></i>}
-                    />,
-                  ]}
-                >
-                  <List.Item.Meta
-                    title={imageFile.name}
-                    description={`Size: ${imageFile.size}`}
-                  />
-                </List.Item>
+            {
+              <div>
+                {imageFile && (
+                  <div>
+                    <div className='rounded-md w-full h-full themed'>
+                      <h1 className='justify-center text'>{imageFile.name}</h1>
+                      
+                    </div>
+                    <div className='flex flex-row'>
+                      <button className='justify-center text'
+                        onClick={handleRemoveFile} >Remove file</button>
+                      <div className='flex flex-row'>
+                        {
+                          progressUpload >= 1 ?
+                            <p className='animate-spin text-blue-300'>o</p> : <></>
+                        }
+                        <button className='justify-center text'
+                          onClick={handleUploadFile}>Upload</button></div>
+                      
+                    </div>
 
-                <div className="text-right mt-3">
-                  <Button className='text-white bg-blue-400'
-                    loading={isUploading}
-                    type="primary"
-                    onClick={handleUploadFile}
-                  >
-                    Upload
-                  </Button>
-
-                  <Progress percent={progressUpload} />
-                </div>
-              </>
-            )}
-
-            {downloadURL && (
+                  </div>
+                )}
+              </div>
+            }
+             {downloadURL && (
               <>
                 <Image
                   src={downloadURL}
                   alt={downloadURL}
-                  style={{ width: 200, height: 200, objectFit: 'cover' }}
+                  width={200} height={ 200}
+                 
                 />
                 <p>{downloadURL}</p>
               </>
             )}
-            <p></p>
-            </div>
-            */}
           </div>
             
       </div>

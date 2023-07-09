@@ -21,20 +21,20 @@ const sidebarItems = [
     icon: AiOutlineHome,
   }
   ,
-  {
-    name: 'Dash',
-    href: '/dashboard',
-    icon: MdDashboard
-  },
-  {
+   {
     name: "Dishes",
-    href: '/products',
+    href: '/dishes',
     icon: AiFillShopping
+  },
+{
+    name: 'Dash',
+    href: '/dash',
+    icon: MdDashboard
   }
-
+ 
 ];
 import { useTabStore } from "../zustand/sidebar.store";
-
+import ThemeSwitcher from "./ThemeSwitcher";
 const Sidebar = () => {
   
   const router = useRouter();
@@ -59,27 +59,30 @@ const Sidebar = () => {
 *
      */
   return (
-    <div className="fixed flex left-0 bottom-0 rounded-sm bg-gradient-to-r from-red-600 to-yellow-300 sm:w-16 z-20 w-full sm:h-full h-16 sm:flex-grow">
+    <div className="fixed flex left-0 bottom-0 rounded-sm themed z-20 w-full h-14">
      
       
-        <ul className="rounded-md flex flex-row flex-grow w-full sm:flex-col justify-around">
+        <ul className="rounded-3xl flex flex-row flex-grow justify-evenly themed">
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
-              <li className="hover:animate-bounce bg-yellow-200/2 px-1" key={name}>
-                <Link
-                  className={`sm:text-center flex sm:flex-col hover:bg-yellow-400 active:bg-red-400 text-black font-bold rounded-full transition-colors duration-300 animate-pulse ${
-                    search === href ? "animate-pulse" : ""
+    
+                <Link key={name}
+                  className={`text-center justify-center sm:text-center items-center flex sm:flex-col bg-yellow-300 hover:dark:bg-gray-700 dark:bg-gray-600 hover:bg-yellow-400 active:bg-red-400 font-bold rounded-lg w-12 sm:w-24 ${
+                    search === href ? "duration-300 animate-pulse ease-in-out" : ""
                   }`}
                   href={href}
-                > 
-                  
-                    <Icon className="justify-center items-center" />
-                  <p className="text-center hidden sm:inline sm:text-md text-sm sm:w-16">{name}</p>
-                 
+              > 
+                <Icon size={24} className="text hover:animate-spin" />
+             
                 </Link>
-              </li>
+              
             );
-          })}
+          }
+            
+        )}
+        <span className="flex flex-row items-center hover:bg-yellow-500 dark:hover:bg-gray-600 text">
+            <ThemeSwitcher />
+        </span>
         </ul>
    
     { /*</aside>*/}
@@ -88,3 +91,12 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+/*
+   {/* 
+                 }
+                  <span className="flex flex-grow items-center">  <Icon size={24} className="text" />
+                    <p className="text text-center hidden">{name}</p>{/*removed sm-inline 
+                 </span>
+                  
+*/

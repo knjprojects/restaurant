@@ -16,6 +16,24 @@
     .inspect{
         @apply hover:scale-95
     }
+    .text{
+      @apply dark:text-yellow-300 text-black font-merienda font-thin sm:text-3xl text-xl sm:tracking-wide tracking-normal 
+    }
+    .lighten{
+      @apply bg-white rounded-3xl px-4 dark:bg-gray-600
+    }
+    .heading{
+      @apply font-merienda text-white dark:text-red-500 text-2xl sm:text-3xl text-center  sm:tracking-wider tracking-wide p-6
+    }
+    .themed{
+      @apply bg-yellow-300 dark:bg-gray-600
+    }
+    .card{
+      @apply bg-yellow-500 dark:bg-gray-700
+    }
+     .cardtext{
+      @apply font-merienda dark:text-red-500 text-white sm:text-3xl text-2xl sm:tracking-wider tracking-wide font-light
+    }
  
 
     .highlight{

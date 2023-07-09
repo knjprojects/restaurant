@@ -9,10 +9,13 @@ import famous from "../public/assets/img/famous.png"
 import {Fade,Slide} from 'react-awesome-reveal'
 import ReactPlaceholder from 'react-placeholder';
 import ProductShimmer from './ProductShimmer';
-const SanityCollection = () => {
+const AllDishes = () => {
 
   let zus= useCartStore()
-  const [data, setData]:any = useState([]);
+    const [data, setData]: any = useState([]);
+    const [specialsData, setSpecials]: any = useState([]);
+    const [appData, setApp]: any = useState([]);
+    
   const GetZustand =  () => {
     return zus.tempOrder
   }
@@ -57,4 +60,4 @@ const SanityCollection = () => {
   )
 }
 
-export default SanityCollection
+export default AllDishes

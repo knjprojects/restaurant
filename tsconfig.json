@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "utils/firebase.tsx", "zustand/auth.store.ts", "sanity/sanity.config.ts"  ],
+, "utils/firebase.tsx", "zustand/auth.store.ts", "sanity/sanity.config.ts", "app/dishes/layout.tsx.txt"  ],
   "exclude": [
     "node_modules"
   ]

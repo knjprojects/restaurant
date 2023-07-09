@@ -15,7 +15,7 @@ const ThemeSwitcher = () => {
   }
 
   return (//${theme == "dark" ? 'light' : 'dark'}
-      <div className="w-8 sm:h-8 rounded-xl justify-center m-3 hover:scale-150 hover:animate-spin animate-fadeIn">
+      <div className="themed w-8 sm:h-8 rounded-xl justify-center m-3 hover:scale-150 animate-spin">
 
               {theme == 'dark' ? 
                   <MoonIcon onClick={() => {

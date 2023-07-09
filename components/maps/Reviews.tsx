@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 import { testimonials } from '../../utils/lib/data/reviews'
-type Props = {
+type Props = {}
+import Image from 'next/image'
 
-}
 type Review={
   time:any;
   text:string;
@@ -76,37 +76,28 @@ const ReviewsComponent = ({ place }: any) => {
       setActiveTestimonial(prevState => (prevState === testimonials.length - 1 ? 0 : prevState + 1));
     };
 
-    return (
-      <div className="bg-yellow-300 py-10">
-        <h1 className='font-bold text-black text-center justify-center'>Reviews</h1>
+  return (
+      <section className='snap-proximity' id='reviews'><div className="bg-yellow-500 dark:bg-gray-700 py-10 rounded-2xl">
+        <h1 className='sm:px-12 heading pt-20'>Location- 158 King St W, Hamilton, ON L8P 1A5, Canada</h1>
         
-        <div className="max-w-3xl mx-auto">
-          <Minimap searchParams={'Famous Recipe'} />
+          <iframe className='w-full' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.419369823696!2d-79.87469983037391!3d43.25818079819523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b827db72349%3A0xed695ec32dc3c506!2sFamous%20Recipe!5e0!3m2!1sen!2stt!4v1688817595090!5m2!1sen!2stt" width="600" height="450"  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <div className="mx-auto">
+          {/*} <Minimap searchParams={'Famous Recipe'} /> */}
           <div className="relative">
             <div className="absolute left-0 bottom-10 transform -translate-y-1/2">
               <button
                 className="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 focus:outline-none"
                 onClick={handlePrev}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-6 h-6"
-                >
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
+                
               </button>
             </div>
 
-            <div className="relative">
-              <div className="bg-yellow-100 rounded-lg p-6 mb-6">
-                <p className="text-black text-lg italic">{testimonials[activeTestimonial].content}</p>
-                <div className='sm:flex grid sm:space-x-2 lg:space-x-3 sm:flex-row'>
+            <div className="h-full relative p-6 pt-20 rounded-xl">
+              <h1 className='heading pb-6'>Customer Reviews</h1>
+              <div className="lighten rounded-2xl">
+                <p className="text p-6">{testimonials[activeTestimonial].content}</p>
+                <div className='flex sm:space-x-2 lg:space-x-3 flex-row p-6'>
                   <p className="text-red-500 mt-4">{testimonials[activeTestimonial].name}</p>
                     <p className="text-red-500 mt-4">{testimonials[activeTestimonial].rating}</p>
                 </div>
@@ -135,7 +126,8 @@ const ReviewsComponent = ({ place }: any) => {
             </div>
           </div>
         </div>
-      </div>
+      </div></section>
+      
     );
 
   

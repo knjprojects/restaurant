@@ -12,8 +12,7 @@ import { Disclosure } from '@headlessui/react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth,db } from '../../utils/firebase';
 import { useRouter } from 'next/navigation';
-import { getDishes } from '../../sanity/sanity_utils';
-import { Carousel } from 'flowbite-react'
+
 
 //import ParallaxScroll from './WritingParallax'
 import { useTheme } from "next-themes";
@@ -21,11 +20,12 @@ import { useTheme } from "next-themes";
 
 import ScrollLink from '../../components/ScrollLink';
 import { Dish } from '../../typings';
-
-
-
-
- const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+import { Slide } from 'react-awesome-reveal';
+import ItemCard from '../../components/Item';
+import { getDishes,getDishesbyCategory } from '../../sanity/sanity_utils';
+import { useCartStore } from '../../zustand/cart.store';
+import AllDishes from '../../components/AllDishes';
+const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       // first prevent the default behavior
       e.preventDefault();
       // get the href and remove everything before the hash (#)
@@ -38,16 +38,9 @@ import { Dish } from '../../typings';
       });
     };
 
-const Products = async () => {
- const [data, setData]: any = useState([]);
-  useEffect(() => { 
-    getDishes().then((data: Dish[]) => { 
-    console.log(data)
-    setData((data))
-    return data;
-    
-  });
-  },[])
+const Dishes = async () => {
+  let zus= useCartStore()
+ 
 
 
   
@@ -76,19 +69,18 @@ const Products = async () => {
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"> <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p></div>
-     
-      <div className='bg-gradient-to-br from-yellow-300 to-black flex'>
-        <p className='text-white'>yoo</p>
-      </div>
+    <main className="full items-center justify-between p-24">
+      <h1 className='heading'>Browse our menu</h1>
+      <AllDishes />
+       <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center'>
+        
+       
+       </div>
+      
  </main>
   )
 }
   
 
-export default Products
+export default Dishes
   

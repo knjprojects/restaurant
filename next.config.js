@@ -32,7 +32,8 @@ module.exports = {
     "firebasestorage.googleapis.com",
     "platform-lookaside.fbsbx.com",
     'upload.wikimedia.org',
-    'i.ibb.co','static.dezeen.com','i.pinimg.com','cdn-icons-png.flaticon.com'
+      'i.ibb.co', 'static.dezeen.com', 'i.pinimg.com', 'cdn-icons-png.flaticon.com',
+    'lh3.googleusercontent.com'
 
     ],
   formats: ['image/avif', 'image/webp'],

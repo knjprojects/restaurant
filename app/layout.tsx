@@ -24,20 +24,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+
+      </head>
       
       { /**className={inter.className}* */}
-      <body className='bg-yellow--300 h-full w-full'
+      <body className='themed h-full w-full'
         
         
         >
         
         <Providers >
-
-   <BaseLayout> {children}</BaseLayout>
+          
+          <BaseLayout>
+            {children}</BaseLayout>
        
       
        
-            </Providers>
+        </Providers>
+        
       </body>
     </html>
   )
