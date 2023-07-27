@@ -42,7 +42,7 @@
     }
     
     .themed{
-      @apply  bg-gradient-to-br from-yellow-300 to-red-600 via-
+      @apply  bg-gradient-to-br from-yellow-300 to-red-600 via-yellow-400
     }
      .cardtext{
       @apply text-white dark:text-red-500 text
