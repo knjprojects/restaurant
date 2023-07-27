@@ -5,39 +5,55 @@
   .view{
     @apply align-middle text-center 
   }
+  
     .icon{
         @apply hidden xl:inline-flex p-2 h-10 w-10 
         bg-purple-100 rounded-full cursor-pointer
         shadow-sm highlight
     }
     .surround{
-      @apply justify-center text-center bg-yellow-300 rounded-sm border-spacing-2 border border-black text-black font-merienda
+      @apply rounded-xl shadow-xl justify-center shadow-red-500 border-red-500 border-x-2 border-y-2 dark:border-yellow-300 dark:shadow-yellow-200
     }
-    .inspect{
-        @apply hover:scale-95
+    .pad{
+      @apply xl:px-20 lg:px-16 md:px-14 sm:px-10
+    }
+    .hovers{
+        @apply hover:scale-95 hover:shadow-xl hover:bg-yellow-500 dark:hover:bg-gray-600
+    }
+    .yellow-black-text{
+      @apply dark:text-yellow-300 text-black
     }
     .text{
-      @apply dark:text-yellow-300 text-black font-merienda font-thin sm:text-3xl text-xl sm:tracking-wide tracking-normal 
+      @apply text-base md:text-lg lg:text-2xl xl:text-3xl sm:tracking-wider tracking-wide 
+      font-rustic font-thin 
     }
+    .welcome{
+      @apply text-2xl font-bold lg:text-3xl tracking-wide md:tracking-wider font-rustic text-red-600 decoration-violet-50 dark:text-yellow-300
+    }
+    .heading{
+      @apply font-merienda text-red-500 dark:text-yellow-300 text-2xl sm:text-3xl text-center  sm:tracking-wider tracking-wide p-6
+    }
+    
     .lighten{
       @apply bg-white rounded-3xl px-4 dark:bg-gray-600
     }
-    .heading{
-      @apply font-merienda text-white dark:text-red-500 text-2xl sm:text-3xl text-center  sm:tracking-wider tracking-wide p-6
+    .subheading{
+      @apply font-merienda font-semibold text-center p-6
     }
+    
     .themed{
-      @apply bg-yellow-300 dark:bg-gray-600
-    }
-    .card{
-      @apply bg-yellow-500 dark:bg-gray-700
+      @apply  bg-gradient-to-br from-yellow-300 to-red-600 via-
     }
      .cardtext{
-      @apply font-merienda dark:text-red-500 text-white sm:text-3xl text-2xl sm:tracking-wider tracking-wide font-light
+      @apply text-white dark:text-red-500 text
+    }
+    .extras{
+      @apply transition ease-in-out delay-150 bg-yellow-300 hover:-translate-y-1 hover:scale-110 hover:bg-yellow-400 duration-300
     }
  
 
     .highlight{
-        @apply inspect hover:text-blue-400 hover:bg-white hover:shadow-xl shadow-blue-300
+        @apply hovers hover:text-blue-400 hover:bg-white shadow-blue-300
     }
     
     .headericon{

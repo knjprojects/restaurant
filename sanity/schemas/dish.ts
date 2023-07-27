@@ -65,8 +65,12 @@ export default defineType({
       to: {type:'cat' }
       //[{type: 'reference', to: {type: 'category'}}],
     }),
-    
-   
+    /*defineField({
+      name: 'subDishes',
+      title: 'Sub Dishes',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'subDish' } }],
+    })*/
   ],
 
   /*preview: {

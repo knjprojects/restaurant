@@ -1,33 +1,37 @@
 'use client';
+import React from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { useForm } from 'react-hook-form';
+
+type IFormInput ={
+  firstName: string
+  lastName: string
+  age: number
+}
 export default function MyModal() {
+  
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors }
-  } = useForm({
+  } = useForm<IFormInput>({
     defaultValues: {
-      example: "",
-      exampleRequired: ""
+      firstName: "",
+      lastName: "",
+      age:18
     }
   });
-
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
-
-
+  
+  console.log(watch("firstName")); // you can watch individual input by pass the name of the input
   let [isOpen, setIsOpen] = useState(true)
-
   function closeModal() {
     setIsOpen(false)
   }
-
   function openModal() {
     setIsOpen(true)
   }
-
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center">
@@ -37,12 +41,12 @@ export default function MyModal() {
       })}
     >
       <label>Example</label>
-      <input {...register("example")} defaultValue="test" />
+      <input {...register("firstName")} defaultValue="test" />
       <label>ExampleRequired</label>
       <input
-        {...register("exampleRequired", { required: true, maxLength: 10 })}
+        {...register("lastName", { required: true, maxLength: 10 })}
       />
-      {errors.exampleRequired && <p>This field is required</p>}
+      {errors.lastName && <p>This field is required</p>}
       <input type="submit" />
     </form>
         <button

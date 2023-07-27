@@ -4,6 +4,8 @@ import { testimonials } from '../../utils/lib/data/reviews'
 type Props = {}
 import Image from 'next/image'
 
+import Rating from '@mui/material/Rating';
+
 type Review={
   time:any;
   text:string;
@@ -12,6 +14,7 @@ type Review={
 }
 import { useEffect, useState } from 'react';
 import Minimap from './Minimap';
+import { Fade, Slide } from 'react-awesome-reveal'
 const ReviewsComponent = ({ place }: any) => {
   const [reviews, setReviews] = useState([]);
   const placeId='ChIJSSO3fYKbLIgRBsXDLcNeae0'
@@ -77,10 +80,13 @@ const ReviewsComponent = ({ place }: any) => {
     };
 
   return (
-      <section className='snap-proximity' id='reviews'><div className="bg-yellow-500 dark:bg-gray-700 py-10 rounded-2xl">
-        <h1 className='sm:px-12 heading pt-20'>Location- 158 King St W, Hamilton, ON L8P 1A5, Canada</h1>
+    <section className='snap-proximity' id='reviews'><div className="themed py-10">
+   
+         <h1 className='heading pt-20'>Location- 158 King St W, Hamilton, ON L8P 1A5, Canada</h1>
+     
+       
         
-          <iframe className='w-full' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.419369823696!2d-79.87469983037391!3d43.25818079819523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b827db72349%3A0xed695ec32dc3c506!2sFamous%20Recipe!5e0!3m2!1sen!2stt!4v1688817595090!5m2!1sen!2stt" width="600" height="450"  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <iframe className='w-full border-2 border-red-600 rounded-xl  dark:border-yellow-300' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.419369823696!2d-79.87469983037391!3d43.25818079819523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c9b827db72349%3A0xed695ec32dc3c506!2sFamous%20Recipe!5e0!3m2!1sen!2stt!4v1688817595090!5m2!1sen!2stt" width="600" height="450"  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         <div className="mx-auto">
           {/*} <Minimap searchParams={'Famous Recipe'} /> */}
           <div className="relative">
@@ -93,13 +99,14 @@ const ReviewsComponent = ({ place }: any) => {
               </button>
             </div>
 
-            <div className="h-full relative p-6 pt-20 rounded-xl">
+            <div className="h-full relative pt-32 rounded-xl">
               <h1 className='heading pb-6'>Customer Reviews</h1>
-              <div className="lighten rounded-2xl">
+              <div className="lighten surround">
                 <p className="text p-6">{testimonials[activeTestimonial].content}</p>
                 <div className='flex sm:space-x-2 lg:space-x-3 flex-row p-6'>
-                  <p className="text-red-500 mt-4">{testimonials[activeTestimonial].name}</p>
-                    <p className="text-red-500 mt-4">{testimonials[activeTestimonial].rating}</p>
+                <p className="text-red-500 mt-4">{testimonials[activeTestimonial].name}</p>
+                   <Rating className='mt-3' name="read-only" value={testimonials[activeTestimonial].rating} readOnly />
+                    
                 </div>
          
               </div>

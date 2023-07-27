@@ -4,23 +4,28 @@ import { Fade,Slide } from 'react-awesome-reveal'
 type Props = {}
 import Image from 'next/image'
 import famous from "../public/assets/img/famous.png"
-import SanityCollection from './SanityCollection'
+import Opening from './Opening'
+//import SanityCollection from './SanityCollection'
+
 const Intro = (props: Props) => {
   return (
-    <div className='h-full flex flex-col sm:m-4 m-1 mt-12'>
-        
-        <div className='md:mt-26 mt-32 rounded-lg sm:flex lg:grid-cols-2 justify-left content-end themed space-x-2'>
-               
-               <Fade direction='up' triggerOnce>
-        <h1 className='pb-12 rounded-2xl justify-center heading text-black dark:text-yellow-300 text-md sm:text-xl lg:text-2xl tracking-normal sm:tracking-wide font-light text'>Famous Recipe is a Canadian and Caribbean styled restaurant. Offering unique cuisines, customer service and just real good food. We are happy to announce that we are online and ready to take your orders!</h1>
-          </Fade>
+    <div className='h-full flex flex-col sm:m-4 m-1'>
+        <section className='mt-32 sm:mt-36'>   <div className='rounded-lg sm:flex lg:grid-cols-2 justify-left content-end themed space-x-2'>
+        <h1 className='p-6 lg:mx-14
+         rounded-2xl justify-center text-black dark:text-yellow-300 text-md sm:text-xl lg:text-2xl tracking-normal sm:tracking-wide font-light text'>Famous Recipe is a Canadian and Caribbean styled restaurant. Offering unique cuisines, customer service and just real good food. We are happy to announce that we are online and ready to take your orders!</h1>
       </div>
-    
-    
-      <Slide direction='up'>
-        <h1 className='text-center heading text-red-500 py-10'>Daily Specials</h1>
-        <SanityCollection/>
-      </Slide>
+      {/*<div className = "min-h-screen bg-fixed bg-center bg-no-repeat bg-cover bg-venue rounded-3xl" >
+              <div className="flex h-40 w-full/2 themed rounded-md">
+              </div>
+  </div >*/}
+       <Opening /> 
+    </section>
+   
+      <section className='snap-x snap-mandatory'>
+        <h1 className='p-3 text-white dark:text-black bg-red-600 rounded-xl my-14 dark:bg-yellow-300 text text-center'>Browse our menu</h1>
+       </section>
+        
+      
     </div>
    
         

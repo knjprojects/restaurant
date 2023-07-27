@@ -13,7 +13,7 @@ export async function getDishes(): Promise<Dish[]> {
       price, name, type, description,
       "slug":slug.current,
       "image":image.asset->url,
-      "cat":cat->slug
+      "cat":cat->slug.current
     }`,
     
   )

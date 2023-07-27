@@ -20,18 +20,6 @@ const sidebarItems = [
     href: "/",
     icon: AiOutlineHome,
   }
-  ,
-   {
-    name: "Dishes",
-    href: '/dishes',
-    icon: AiFillShopping
-  },
-{
-    name: 'Dash',
-    href: '/dash',
-    icon: MdDashboard
-  }
- 
 ];
 import { useTabStore } from "../zustand/sidebar.store";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -44,20 +32,7 @@ const Sidebar = () => {
   const tab = useTabStore();
   const[isCollapsed,setCollapse]=useState(tab.isCollapsed)
  
-  /**    {/*<aside className="" data-collapse={isCollapsed}>
-        {/*<div className="fixed top-0">
-          {<Image
-            width={80}
-            height={80}
-            className="sidebar__logo"
-            src={logo}
-            alt="logo"
-          />
-  }
-          <p className="bg-famous">Famous Recipe</p>
-        </div>
-*
-     */
+  
   return (
     <div className="fixed flex left-0 bottom-0 rounded-sm themed z-20 w-full h-14">
      
@@ -80,7 +55,7 @@ const Sidebar = () => {
           }
             
         )}
-        <span className="flex flex-row items-center hover:bg-yellow-500 dark:hover:bg-gray-600 text">
+        <span className="flex flex-row items-center themed text">
             <ThemeSwitcher />
         </span>
         </ul>

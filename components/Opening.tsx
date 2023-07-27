@@ -4,7 +4,7 @@ type Props = {}
 
 const Opening = (props: Props) => {
     const dateTime = [
-        { day: 'Saturday', time: '11:am' },
+        { day: 'Saturday', time: '11:am - 4 pm' },
         { day: 'Sunday', time: 'Closed' },
         { day: 'Monday', time: 'Closed' },
         { day: 'Tuesday', time: '11am -6pm' },
@@ -14,15 +14,15 @@ const Opening = (props: Props) => {
     ]
 
   return (
-      <div className='themed'>
-          <h1 className='text text-center'>
+      <div className='themed mt-12 rounded-full'>
+          <h1 className='heading text-center'>
               Opening Hours
           </h1>
-          <div className='m-6'>   {
+          <div className='m-6 pb-4'>   {
               dateTime?.map((opening: any) => { 
                   return (
-                      <div  className='flex flex-row' key={opening}>
-                          <p className='text'>{opening?.date}</p>
+                      <div  className='flex flex-row gap-6 justify-center' key={opening}>
+                          <p className='text'>{opening?.day}</p>
                           <p className='text'>{ opening?.time}</p>
                       </div>
                   );

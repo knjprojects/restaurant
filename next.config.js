@@ -28,6 +28,7 @@ module.exports = {
       },
     ],
     domains: [
+      'izzycooking.com',
     'cdn.sanity.io','assets.vercel.com','images.pexels.com','fakestoreapi.com','press.aboutamazon.com',
     "firebasestorage.googleapis.com",
     "platform-lookaside.fbsbx.com",
