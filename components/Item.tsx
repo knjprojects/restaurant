@@ -4,7 +4,7 @@ import { Dish } from '../typings'
 import Image from 'next/image'
 import { ChevronUpIcon} from '@heroicons/react/24/solid'
 import { Disclosure ,Popover,Transition } from '@headlessui/react'
-import { TempOrderState, useCartStore } from '../zustand/cart.store'
+import { TempOrderState, useCartStore } from '../src/zustand/cart.store'
 
 const ItemCard = (dish: Dish,cart:TempOrderState,isCarosel:boolean) => {
     let caht = cart.tempOrder;

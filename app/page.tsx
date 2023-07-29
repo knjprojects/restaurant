@@ -8,7 +8,7 @@ import Intro from '../components/Intro'
 import ReviewsComponent from '../components/maps/Reviews'
 import Carosel from '../components/Carosel'
 import AllDishes from '../components/AllDishes'
-import Welcome from '../components/Welcome'
+import WelcomeBanner from '../components/WelcomeBanner'
 import Contact from '../components/Contact'
 
 //import { Carousel } from '../components/Carousel'
@@ -39,7 +39,7 @@ export default function Home() {
               </div>
             </div >
        
-        <Welcome />
+        <WelcomeBanner />
     </section>
     
         

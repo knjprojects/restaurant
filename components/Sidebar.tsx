@@ -21,7 +21,7 @@ const sidebarItems = [
     icon: AiOutlineHome,
   }
 ];
-import { useTabStore } from "../zustand/sidebar.store";
+import { useTabStore } from "../src/zustand/sidebar.store";
 import ThemeSwitcher from "./ThemeSwitcher";
 const Sidebar = () => {
   

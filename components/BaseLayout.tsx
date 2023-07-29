@@ -1,4 +1,4 @@
-import Footer from "./FooterTimer";
+import Footer from "./special/FooterTimer";
 
 import Sidebar from "./Sidebar";
 const BaseLayout = ({ children }:{ children: React.ReactNode}) => {

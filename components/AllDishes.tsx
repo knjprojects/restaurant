@@ -1,14 +1,14 @@
 'use client';
 import React,{useEffect,useState} from 'react'
-import { getDishes,getDishesbyCategory } from '../sanity/sanity_utils';
+import { getDishes,getDishesbyCategory } from '../src/sanity/sanity_utils';
 import { Dish } from '../typings';
 import Image from 'next/image';
 import ItemCard from './Item';
-import { useCartStore } from '../zustand/cart.store';
+import { useCartStore } from '../src/zustand/cart.store';
 import famous from "../public/assets/img/famous.png"
 import {Fade,Slide} from 'react-awesome-reveal'
 import ReactPlaceholder from 'react-placeholder';
-import ProductShimmer from './ProductShimmer';
+import ProductShimmer from './special/ProductShimmer';
 import ExpandDishes from './ExpandDishes';
 const AllDishes = () => {
   let zus= useCartStore()

@@ -11,7 +11,8 @@ module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
-    "./node_modules/flowbite/**/*.js"
+    "./node_modules/flowbite/**/*.js",
+    './src/**/*.{js,ts,jsx,tsx}'
   ],
 
   variants: {

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "utils/firebase.tsx", "zustand/auth.store.ts", "sanity/sanity.config.ts", "app/dishes/layout.tsx.txt", "components/Slider.js"  ],
+, "src/utils/firebase.tsx", "src/zustand/auth.store.ts", "src/sanity/sanity.config.ts", "app/dishes/layout.tsx.txt", "components/Slider.js"  ],
   "exclude": [
     "node_modules"
   ]

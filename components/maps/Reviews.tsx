@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { testimonials } from '../../utils/lib/data/reviews'
+import { testimonials } from '../../src/utils/lib/data/reviews'
 type Props = {}
 import Image from 'next/image'
 
