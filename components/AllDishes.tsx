@@ -9,6 +9,7 @@ import famous from "../public/assets/img/famous.png"
 import {Fade,Slide} from 'react-awesome-reveal'
 import ReactPlaceholder from 'react-placeholder';
 import ProductShimmer from './ProductShimmer';
+import ExpandDishes from './ExpandDishes';
 const AllDishes = () => {
   let zus= useCartStore()
     //const [data, setData]: any = useState([]);
@@ -17,9 +18,7 @@ const AllDishes = () => {
   const [curryVeggie,setCurryVeggie]:any=useState([])
   const [appetizers,setAppetizers]:any =useState([])
   const [westIndian,setWestIndian]:any=useState([])
-  const [appData, setApp]: any = useState([]);
-  const [currentCats,setCats]:any=useState([])
-  const [filter,setfFilter]=useState('all')
+  
     
   const GetZustand =  () => {
     return zus.tempOrder
@@ -78,13 +77,12 @@ const AllDishes = () => {
   },[])
 
   
-    
-  return (
-   
-        
-    <div className='mb-14 snap-y snap-mandatory'>
-      <section>
-        <h1 className='mt-14 justify-center heading'>Specials (Bone-In)</h1>
+  const Menu=()=>{
+    return (
+      <div>
+        <section className=' mt-24snap-x snap-center'>
+       
+        <h1 className='justify-center heading'>Specials (Bone-In)</h1>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center'>
         
         
@@ -103,8 +101,8 @@ const AllDishes = () => {
         </div>
 
         </section>
-        <section className='snap-y'>
-        <h1 className='mt-14 justify-center heading'>Appetizers</h1>
+        <section className='snap-y mt-14'>
+        <h1 className='justify-center heading'>Appetizers</h1>
 
       
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center'>
@@ -124,8 +122,8 @@ const AllDishes = () => {
        
     </div>
     </section>
-        <section>
-        <h1 className='mt-14 justify-center heading'>Curry Dishes</h1>
+        <section className='snap-y snap-center mt-14'>
+        <h1 className='heading'>Curry Dishes</h1>
 
         <h1 className='subheading'>Meat</h1>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center'>
@@ -145,7 +143,7 @@ const AllDishes = () => {
        
     </div>
     <h1 className='subheading'>Veggie</h1>
-    <h1 className='subheading'>Any two mix of vegetarian dishes :10.50</h1>
+    <h1 className='note'>Any two mix of vegetarian dishes costs 10.50!</h1>
         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 justify-center'>
         
         
@@ -190,6 +188,22 @@ const AllDishes = () => {
        
     </div>
     </section>
+      </div>
+    )
+    ;
+  }
+
+
+
+
+  return (
+   
+        
+    <div className='mb-14 snap snap-mandatory w-full'>
+        <ExpandDishes>
+          <Menu/>
+        </ExpandDishes>
+
      </div>
       
       

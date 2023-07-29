@@ -101,11 +101,11 @@ const ReviewsComponent = ({ place }: any) => {
 
             <div className="h-full relative pt-32 rounded-xl">
               <h1 className='heading pb-6'>Customer Reviews</h1>
-              <div className="lighten surround">
+              <div className="themed surround">
                 <p className="text p-6">{testimonials[activeTestimonial].content}</p>
                 <div className='flex sm:space-x-2 lg:space-x-3 flex-row p-6'>
                 <p className="text-red-500 mt-4">{testimonials[activeTestimonial].name}</p>
-                   <Rating className='mt-3' name="read-only" value={testimonials[activeTestimonial].rating} readOnly />
+                   <Rating className='mt-3 text-black dark:text-yellow-300' name="read-only" value={testimonials[activeTestimonial].rating} readOnly />
                     
                 </div>
          
@@ -113,7 +113,7 @@ const ReviewsComponent = ({ place }: any) => {
 
               <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
                 <button
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 focus:outline-none"
+                  className="btn rounded-full p-2 focus:outline-none"
                   onClick={handleNext}
                 >
                   <svg
@@ -124,7 +124,7 @@ const ReviewsComponent = ({ place }: any) => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-6 h-6"
+                    className="w-6 h-6 btntext"
                   >
                     <path d="M9 6l6 6-6 6" />
                   </svg>

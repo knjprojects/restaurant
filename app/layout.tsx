@@ -2,7 +2,6 @@
 //prerequisites and type imports
 import './format.css'
 import React, { ReactNode } from 'react'
-import Head from 'next/head';
 import type { Session } from "next-auth"
 import Script from 'next/script';
 //predefined layout and provider files
@@ -35,14 +34,12 @@ export default function RootLayout({
  
   return (
     <html lang="en" className={`${rustic.variable} font-rustic`}>
-      <Head>
+      <head>
           {/*Carosel styles  import here */}
          
-          <style>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-      </style>
+          
       
-      </Head>
+      </head>
       
       { /**className={inter.className}* */}
       <body className='themed h-full w-full'

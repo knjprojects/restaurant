@@ -55,7 +55,7 @@ const Sidebar = () => {
           }
             
         )}
-        <span className="flex flex-row items-center themed text">
+        <span className="flex flex-row items-center text">
             <ThemeSwitcher />
         </span>
         </ul>

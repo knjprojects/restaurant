@@ -8,9 +8,19 @@ declare const $: any;
 import localFont from 'next/font/local'
  
 export default function Document() {
-  
+ 
+/*const rustic = localFont({
+  src: [
+    {
+      path: '../public/assets/fonts/Rustic.otf',
+      weight: '400'
+    },
+    
+  ],
+  variable: '--font-rustic'
+})*/
   return (
-    <Html lang="en">
+    <Html lang="en" className={``}>
       
       <title>Famous Recipe</title>
       <Head>

@@ -17,21 +17,26 @@ const ItemCard = (dish: Dish,cart:TempOrderState,isCarosel:boolean) => {
     }
   
   //if(limit=='all')
-  return (
+  return ( //${isCarosel?'h-80':'h-64'}
     
-    <div className='p-3 extras themed surround overflow-hidden' key={dish!.slug}>
-     
-    
+    <div className='extras themed surround overflow-hidden w-auto' key={dish!.slug}>
       <Image
           src={dish?.image}
           alt="Dish"
-          className={`w-full ${isCarosel?'h-80':'h-40 sm:h-48'} object-cover object-center`}
-          width={200 }
-          height={ 200}
+          className={`object-center`}
+          width={400 }
+          height={ 300}
       />
-        <div className="p-4 card">
+        <div className="py-12 p-2 md:p-4 xl:p-6">
           <div className='flex flex-row'>
-          <h3 className={`text mb-2 ${isCarosel?'justify-center':'justify-left'}`}>{dish?.name}</h3>
+            <div>
+            <h3 className={`text mt-2 ${isCarosel?'justify-center':'justify-left'}`}>{dish?.name}</h3>
+            {dish.slug==='roti'?
+            <p className='text'>Meat Options: Goat, Chicken, Duck</p>
+          : <></>
+            }
+            </div>
+          
             {dish?.slug === 'frychicken' ?
               <p className='text'>{`(Friday)`}</p>
               :
@@ -45,13 +50,10 @@ const ItemCard = (dish: Dish,cart:TempOrderState,isCarosel:boolean) => {
             
           </div>
          
-        <p className="cardtext h-full">
+        <p className="cardtext">
             { dish?.description}
         </p>
-        {dish.slug==='roti'?
-            <p className='text'>Meat Options: Goat, Chicken, Duck</p>
-          : <></>
-            }
+       
             <span className="pt-4 h-14 flex flex-row">
             
                <p className='text flex-1'>  {dish?.price/1.0}</p>

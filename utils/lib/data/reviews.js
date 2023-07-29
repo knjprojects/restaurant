@@ -1,7 +1,7 @@
 export const testimonials = [
       {
         id: 1,
-        name: 'John Doe',
+        name: 'Subuoja Ojerinola',
         content: 'Very easy to find , great customer service . The patty is very fresh although they don’t have chicken patty the beef was good . The spicy was really spicy just what was needed.',
         rating: 6,
       },
@@ -25,9 +25,20 @@ export const testimonials = [
     },
         {
         id: '',
-        name: 'John Doe',
-        content: 'Very easy to find , great customer service . The patty is very fresh although they don’t have chicken patty the beef was good . The spicy was really spicy just what was needed.',
-        rating: 6,
+        name: 'Clara Chan',
+        content: 'Yummy!! Got the jerk chicken with stew gravy. That was delicious and flavorful , and just spicy enough for me. Inhaled it all before I got a chance to take a photo. Thanks for a great lunch!',
+        rating: 6
       },
+      {
+      id:'',
+      name:'Anil Samai',
+      content:'Best trini style food in all Ontario...The doubles on point and the duck roti amazing...When you walk into the shop the aroma brings back nostalgic feelings of the islands..',
+      rating:6
+      },
+      {
+        id:'',
+        name:'Liam', content:'Had a delicious lunch at work yesterday, My Boss and I both had boneless chicken curry in a roti skin with an extra roti skin to dip, it was warm, fresh and massive. For the price you pay the portions are great, and you can tell they put love into the food(even on uber eats orders, which is rare). The hot sauce was more hot than flavourful, but all around it was a great lunch',
+        rating:6
+      }
       // Add more testimonials as needed
     ];

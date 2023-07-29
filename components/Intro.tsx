@@ -21,9 +21,7 @@ const Intro = (props: Props) => {
        <Opening /> 
     </section>
    
-      <section className='snap-x snap-mandatory'>
-        <h1 className='p-3 text-white dark:text-black bg-red-600 rounded-xl my-14 dark:bg-yellow-300 text text-center'>Browse our menu</h1>
-       </section>
+    
         
       
     </div>
