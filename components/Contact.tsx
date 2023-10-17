@@ -53,7 +53,7 @@ export default function MyModal() {
                         <option value="male">Facebook</option>
                         <option value="other">other</option>
                     </select>
-                    {errors.lastName && <p>This field is required</p>}
+                    {errors.lastName? <p>This field is required</p> : <></>}
                     <input type="submit" />
                 </form>
                

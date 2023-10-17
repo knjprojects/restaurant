@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} 
-    
+    remove withmt if errors etc
 */
 
 /** @type {import('@types/tailwindcss/tailwind-config').TailwindConfig} */
 
 
 const defaultTheme = require('tailwindcss/defaultTheme');
-
-module.exports = {
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
+  darkMode: 'class',
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
@@ -23,9 +24,27 @@ module.exports = {
   theme: {
     
     extend: {
+
+      /*spacing: {
+      '5px': '5px',
+    },fontSize: {
+      '6xl': '500%', // Custom font size for text-6xl
+    },
+    letterSpacing: {
+      wider: '0.1em', // Custom letter spacing for tracking-wider
+    },
+    lineHeight: {
+      '150': '150%', // Custom line height for leading-150
+    },
+    perspective: {
+      '400': '400px', // Custom perspective value for perspective-400
+    },
+    /*fontFamily: {
+      'pathway-gothic': ['"Pathway Gothic One"', 'sans-serif'], // Custom font family for font-pathway-gothic
+    },*/
       animation: {
     fadeIn: "fadeIn 2s ease-in forwards"
-  },
+    },
   keyframes: {
     fadeIn: {
       "0%": { opacity: 0 },
@@ -35,7 +54,9 @@ module.exports = {
       fontFamily:{
         Poppins: ["Poppins", "sans-serif"],
         merienda: ["Merienda",...defaultTheme.fontFamily.sans],
-        rustic: ['var(--font-rustic)']
+        rustic: ['var(--font-rustic)'],
+        bariol: ['var(--font-bariol)']
+
       },
       backgroundImage: {
         'my_bg_image': "url('/assets/img/bake.png')",
@@ -52,7 +73,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin'),
+    //require('flowbite/plugin'),
   ],
 
-}
+})

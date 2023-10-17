@@ -26,15 +26,25 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const Sidebar = () => {
   
   const router = useRouter();
-  //const params = useSearchParams();
-  const search = usePathname();// params.get('page')
+  //router.push('/dashboard')
+  
 
+  //'/dashboard?foo=bar' ? 
+  //searchParams.get('foo') = 'bar'
+  const params = useSearchParams();
+  
+  
+  //'/dashboard?foo=bar' ? 
+  //search.get('/dashboard?foo=bar')
+  //=would return "/dashboard"
+  const search = usePathname();
+  
   const tab = useTabStore();
   const[isCollapsed,setCollapse]=useState(tab.isCollapsed)
  
   
   return (
-    <div className="fixed flex left-0 bottom-0 rounded-sm themed z-20 w-full h-14">
+    <div className="fixed flex left-0 bottom-0 rounded-sm themed z-20 w-full h-10 md:h-12 lg:h-14">
      
       
         <ul className="rounded-3xl flex flex-row flex-grow justify-evenly themed">
@@ -42,7 +52,7 @@ const Sidebar = () => {
             return (
     
                 <Link key={name}
-                  className={`text-center justify-center sm:text-center items-center flex sm:flex-col bg-yellow-300 hover:dark:bg-gray-700 dark:bg-gray-600 hover:bg-yellow-400 active:bg-red-400 font-bold rounded-lg w-12 sm:w-24 ${
+                  className={`text-center justify-center sm:text-center items-center flex sm:flex-col  hover:dark:bg-gray-700  hover:bg-yellow-400 active:bg-red-400 font-bold rounded-lg w-12 sm:w-24 ${
                     search === href ? "duration-300 animate-pulse ease-in-out" : ""
                   }`}
                   href={href}
@@ -67,11 +77,3 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-/*
-   {/* 
-                 }
-                  <span className="flex flex-grow items-center">  <Icon size={24} className="text" />
-                    <p className="text text-center hidden">{name}</p>{/*removed sm-inline 
-                 </span>
-                  
-*/

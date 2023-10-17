@@ -1,5 +1,5 @@
 import React from 'react'
-import ThemeSwitcher from './ThemeSwitcher'
+import ThemeSwitcher from '../ThemeSwitcher'
 import { SocialIcon } from 'react-social-icons'
 type Props = {}
 

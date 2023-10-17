@@ -40,17 +40,17 @@ export const auth = getAuth(app);
 export const db:any = getFirestore(app)
   const readUserData = async (userId:any) => {
   try {
-    const userRef = db.collection('users').doc(userId);
-    const userData = await userRef.get();
+  const userRef = db.collection('users').doc(userId);
+  const userData = await userRef.get();
   
-    if (userData.exists) {
-    return userData.data();
-    } else {
-    throw new Error('User not found');
-    }
+  if (userData.exists) {
+  return userData.data();
+  } else {
+  throw new Error('User not found');
+  }
   } catch (error) {
-    console.error('Error reading user data:', error);
-    throw error;
+  console.error('Error reading user data:', error);
+  throw error;
   }
   };
 
@@ -92,12 +92,12 @@ const signInWithGoogle = async () => {
   const q = query(collection(db, "users"), where("uid", "==", user.uid));
   const docs = await getDocs(q);
   if (docs.docs.length === 0) {
-    await addDoc(collection(db, "Users"), {
-    uid: user.uid,
-    name: user.displayName,
-    authProvider: "google",
-    email: user.email,
-    });
+  await addDoc(collection(db, "Users"), {
+  uid: user.uid,
+  name: user.displayName,
+  authProvider: "google",
+  email: user.email,
+  });
   }
   } catch (err:any) {
   console.error(err);

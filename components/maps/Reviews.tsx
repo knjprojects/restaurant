@@ -80,7 +80,8 @@ const ReviewsComponent = ({ place }: any) => {
     };
 
   return (
-    <section className='snap-proximity' id='reviews'><div className="themed py-10">
+    
+      <div className="pad mb-24">
    
          <h1 className='heading pt-20'>Location- 158 King St W, Hamilton, ON L8P 1A5, Canada</h1>
      
@@ -99,12 +100,12 @@ const ReviewsComponent = ({ place }: any) => {
               </button>
             </div>
 
-            <div className="h-full relative pt-32 rounded-xl">
+            <div className="mt-24 h-full relative pt-32 rounded-xl" id='reviews'>
               <h1 className='heading pb-6'>Customer Reviews</h1>
-              <div className="themed surround">
+              <div className="bg-slate-100 dark:bg-black surround">
                 <p className="text p-6">{testimonials[activeTestimonial].content}</p>
-                <div className='flex sm:space-x-2 lg:space-x-3 flex-row p-6'>
-                <p className="text-red-500 mt-4">{testimonials[activeTestimonial].name}</p>
+                <div className='flex sm:space-x-2 lg:space-x-3 flex-row p-6 justify-items-stretch space-x-3'>
+                <p className="text-red-500 font-rustic mt-4">{testimonials[activeTestimonial].name}</p>
                    <Rating className='mt-3 text-black dark:text-yellow-300' name="read-only" value={testimonials[activeTestimonial].rating} readOnly />
                     
                 </div>
@@ -133,7 +134,7 @@ const ReviewsComponent = ({ place }: any) => {
             </div>
           </div>
         </div>
-      </div></section>
+      </div>
       
     );
 

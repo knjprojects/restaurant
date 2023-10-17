@@ -1,24 +1,13 @@
 'use client'
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script';
-var map;
-var service;
-var infowindow;
-declare const $: any;
-import localFont from 'next/font/local'
+
  
 export default function Document() {
- 
-/*const rustic = localFont({
-  src: [
-    {
-      path: '../public/assets/fonts/Rustic.otf',
-      weight: '400'
-    },
-    
-  ],
-  variable: '--font-rustic'
-})*/
+
+
+
+
   return (
     <Html lang="en" className={``}>
       
@@ -30,6 +19,7 @@ export default function Document() {
           { /*add scrits and fonts here */}
           
         </style>
+        
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous'></link>
         <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet"></link>
@@ -44,7 +34,10 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-    
+        {//cdn tag for swiper.js but we used yarn add instead and register()
+        /*<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>*/}
+
+\
       </body>
     </Html>
   )

@@ -14,7 +14,7 @@ const Opening = (props: Props) => {
     ]
 
   return (
-      <div className='themed mt-12 rounded-full'>
+      <div className='mt-12 md:mt-16 lg:mt-20 xl:mt-24 rounded-full'>
           <h1 className='heading text-center'>
               Opening Hours
           </h1>

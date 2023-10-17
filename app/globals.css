@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base{
+  body {
+      @apply dark:from-gray-800 dark:to-black bg-gradient-to-r from-yellow-300 to-[#422006] via-yellow-400
+  }
+}
 @layer components{
   .view{
     @apply align-middle text-center 
@@ -12,49 +17,83 @@
         shadow-sm
     }
     .surround{
-      @apply rounded-xl shadow-md justify-center shadow-red-500 border-red-500 border-x-2 border-y-2 dark:border-yellow-300 dark:shadow-yellow-300
+      @apply rounded-xl shadow-md justify-center shadow-[#422006] border-[#422006] border-x-2 border-y-2 dark:border-yellow-300 dark:shadow-yellow-300
     }
     .pad{
-      @apply xl:px-20 lg:px-16 md:px-14 sm:px-10
+      @apply xl:px-20 lg:px-16 md:px-14 sm:px-10 px-4 
     }
-    .hovers{
-        @apply hover:scale-95 hover:shadow-xl hover:bg-yellow-500 dark:hover:bg-gray-600
+    
+    .padl{
+      @apply xl:pl-20 lg:pl-16 md:pl-14 sm:pl-10 pl-4
     }
+    .padr{
+      @apply xl:pr-20 lg:pr-16 md:pr-14 sm:pr-10 pr-4
+    }
+    
     .yellow-black-text{
       @apply dark:text-yellow-300 text-black
     }
+    .myfont{
+      @apply font-rustic
+    }
+    .responsive{
+      @apply text-lg md:text-2xl lg:text-3xl xl:text-4xl sm:tracking-wider tracking-wide 
+      font-bold
+    }
+    .responsive-small{
+      @apply text-base md:text-lg lg:text-xl xl:text-2xl sm:tracking-wider tracking-wide 
+      font-bold
+    }
+    .title{
+      @apply responsive text-black dark:text-yellow-300
+    }
+    .text-theme{
+      @apply text-gray-800
+    }
     .text{
       @apply text-base md:text-lg lg:text-2xl xl:text-3xl sm:tracking-wider tracking-wide 
-       font-thin font-rustic
+      
     }
+  
     .note{
-      @apply p-3 text-white dark:text-black bg-red-600 rounded-xl my-14 dark:bg-yellow-300 text text-center
+      @apply p-3 text-white dark:text-black bg-red-600 rounded-xl my-14 dark:bg-yellow-300 text font-bold text-center
     }
     .font{
       @apply font-rustic
     }
     .welcome{
-      @apply font text-2xl font-bold lg:text-3xl tracking-wide md:tracking-wider text-black decoration-violet-50 dark:text-yellow-300 text-center
+      @apply font font-bold responsive text-black dark:text-yellow-300 text-center
     }
     .heading{
-      @apply font-rustic text-red-600 dark:text-yellow-300 text-2xl sm:text-3xl text-center  sm:tracking-wider tracking-wide p-6 justify-center
+      @apply font-rustic text-white dark:text-yellow-300 text-2xl sm:text-3xl text-center  sm:tracking-wider tracking-wide p-6 justify-center
+    }
+    .section{
+      @apply pt-4 pb-4 sm:pt-6 sm:pb-6 md:pt-8 md:pb-8 lg:pt-10 lg:pb-10
+    }
+    .gridify{
+      @apply grid md:grid-cols-2 sm:grid-cols-1 gap-6 justify-evenly
     }
     
-    .lighten{
-      @apply bg-white rounded-3xl px-4 dark:bg-gray-600
-    }
+    
+  
     .subheading{
-      @apply font font-semibold text-center p-6
+      @apply font font-semibold text-center p-6 text
     }
     
     .themed{
-      @apply dark:from-gray-800 dark:to-black bg-gradient-to-r from-yellow-300 to-red-500 via-yellow-400
+      @apply dark:from-gray-800 dark:to-black bg-gradient-to-r from-yellow-300 to-[#422006] via-yellow-400
     }
-     .cardtext{
-      @apply text-slate-100 dark:text-red-500 text h-full m-1 my-1
+    .themed-no-gr{
+      @apply dark:bg-gray-800 bg-yellow-400
+    }
+     .description{
+      @apply  text-red-500 text h-full m-1 my-1
     }
     .extras{
-      @apply transition ease-in-out delay-150 bg-yellow-300 hover:-translate-y-1 hover:scale-110 hover:bg-yellow-400 duration-300
+      @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 rounded-2xl
+    }
+    .price{
+     @apply text-black font-bold
     }
  
     .headericon{
@@ -62,146 +101,14 @@
      text-gray-500 md:h-5
     }
     .btn{
-      @apply justify-center bg-red-600 dark:bg-yellow-300 rounded-3xl border-red-600 border-2 hover:animate-bounce extras hover:bg-red-700 dark:hover:bg-yellow-400
+      @apply justify-center bg-red-600 rounded-3xl animate-fadeIn extras
     }
     .btntext{
-      @apply text text-center text-white dark:text-black
+      @apply text-theme text-lg font-semibold text-center
     }
-  
-  
+    .star-wars{
+      @apply flex justify-center relative h-full text-yellow-400 text-4xl font-semibold tracking-wider text-justify
+    }
 }
 
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-@font-face {
-  font-family: "merienda";
-  src: url("../public/assets/merienda_black.ttf");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@layer base {
-  html {
-    font-family: Proxima Nova, system-ui, sans-serif;
-  }
-  
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgb(114, 113, 113);
-  border-radius: 10px;
-  height: 200px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.category-btn:hover {
-  background-color: #FC1503 !important;
-  color: white !important;
-}
-
-.category-btn:hover span{
-  color: white !important;
-}
-
-.react-player {
-  height: 77vh !important;
-  width: 100% !important;
-}
-
-.search-bar{
-  border:none;
-  outline:none;
-  width:350px;
-}
-
-.category-btn{
-  font-weight: bold !important;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor:pointer;
-  background: transparent;
-  outline: none;
-  border: none;
-
-  padding: 7px 15px;
-  margin: 10px 0px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-@media screen and (max-width: 900px) {
-  .category-btn{
-    margin: 10px;
-  }
-}
-
-@media screen and (max-width:800px){
-  .copyright{
-    display:none !important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .scroll-horizontal {
-    overflow: auto !important;
-  }
-
-  .react-player {
-    height: 45vh !important;
-  }
-  .search-bar{
-    width:200px;
-  }
-}
-}

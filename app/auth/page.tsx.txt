@@ -46,7 +46,7 @@ export default function MyModal() {
       <input
         {...register("lastName", { required: true, maxLength: 10 })}
       />
-      {errors.lastName && <p>This field is required</p>}
+      {errors.lastName?  <p>This field is required</p> :<></>}
       <input type="submit" />
     </form>
         <button
